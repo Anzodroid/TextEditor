@@ -104,5 +104,14 @@
   <ItemGroup>
     <None Include="bin\Debug\Icons\if_paste_3671826.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\font_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\font_italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\105_underline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,6 +63,16 @@ namespace WinText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _105_underline {
+            get {
+                object obj = ResourceManager.GetObject("105_underline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _new {
             get {
                 object obj = ResourceManager.GetObject("new", resourceCulture);
@@ -76,6 +86,26 @@ namespace WinText.Properties {
         internal static System.Drawing.Bitmap document_save_as {
             get {
                 object obj = ResourceManager.GetObject("document_save_as", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap font_bold {
+            get {
+                object obj = ResourceManager.GetObject("font_bold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap font_italic {
+            get {
+                object obj = ResourceManager.GetObject("font_italic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -22,7 +22,13 @@ namespace WinText
 
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void fileNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Michael Anziliero 2022\nUniversity of Technology\nVersion 0.0.1");
         }

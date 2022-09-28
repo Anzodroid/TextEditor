@@ -11,12 +11,12 @@ namespace WinText
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        [STAThread] //single thread application
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TextEdit());
+            Application.Run(new TextEdit()); // runs 
         }
     }
 }
