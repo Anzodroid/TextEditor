@@ -1,0 +1,11 @@
+D:\Csharp\2022\WinText\WinText\bin\Debug\WinText.exe.config
+D:\Csharp\2022\WinText\WinText\bin\Debug\WinText.exe
+D:\Csharp\2022\WinText\WinText\bin\Debug\WinText.pdb
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.csproj.AssemblyReference.cache
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.csproj.SuggestedBindingRedirects.cache
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.TextEdit.resources
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.Properties.Resources.resources
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.csproj.GenerateResource.cache
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.csproj.CoreCompileInputs.cache
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.exe
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.pdb
