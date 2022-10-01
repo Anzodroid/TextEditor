@@ -98,6 +98,52 @@ namespace WinText
             function.SaveFile(richTextBox1, true);
         }
 
+
+        // ------------------------Side Tool Strip------------------------------ 
+
+        private void leftCut_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)      
+                richTextBox1.Cut(); // Cut the selected text
+        }
+
+        private void leftCopy_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)
+                richTextBox1.Copy(); // Copy the selected text
+        }
+
+        private void leftPaste_Click(object sender, EventArgs e)
+        {
+
+            // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.textboxbase.cut?view=windowsdesktop-6.0
+
+
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
+            {
+                Functions function = new Functions();
+                function.PasteText(richTextBox1);
+
+            }
+            // Determine if there is any text in the Clipboard to paste into the text box.
+            /*           
+                        {
+                            // Determine if any text is selected in the text box.
+                            if (richTextBox1.SelectionLength > 0)
+                            {
+                                // Ask user if they want to paste over currently selected text.
+                                if (MessageBox.Show("Do you want to paste over current selection?", "Cut Example", MessageBoxButtons.YesNo) == DialogResult.No)
+                                    // Move selection to the point after the current selection and paste.
+                                    richTextBox1.SelectionStart = richTextBox1.SelectionStart + richTextBox1.SelectionLength;
+                            }
+                            // Paste current text in Clipboard into text box.
+                            richTextBox1.Paste();
+                        }*/
+        }
+
+
+
+
         // ------------------------TEST------------------------------ 
 
         private void AddFontSize()

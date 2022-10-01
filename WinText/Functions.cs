@@ -42,7 +42,6 @@ namespace WinText
             saveFile.Title = "Save a file";
             saveFile.Filter = " Text Files(*.rtf) | *.rtf";
 
-
             if (!saveAs)
             {
                 try
@@ -71,6 +70,17 @@ namespace WinText
                 MessageBox.Show("File saved in :" + CurrentFile);
             }
         }
+
+
+        public void PasteText(RichTextBox textBox)
+        {
+            if (textBox.SelectionLength > 0)
+            {
+                textBox.SelectionStart = textBox.SelectionStart + textBox.SelectionLength;
+            }
+            textBox.Paste();  // Paste Clipboard text into richTextBox
+        }
+
 
 
 

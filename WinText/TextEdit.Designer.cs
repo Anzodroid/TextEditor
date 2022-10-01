@@ -304,6 +304,7 @@
             this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.leftCut.Size = new System.Drawing.Size(23, 22);
             this.leftCut.Text = "toolStripButton8";
+            this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
             // 
             // leftCopy
             // 
@@ -313,6 +314,7 @@
             this.leftCopy.Name = "leftCopy";
             this.leftCopy.Size = new System.Drawing.Size(36, 20);
             this.leftCopy.Text = "toolStripButton9";
+            this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
             // 
             // leftPaste
             // 
@@ -322,6 +324,7 @@
             this.leftPaste.Name = "leftPaste";
             this.leftPaste.Size = new System.Drawing.Size(36, 20);
             this.leftPaste.Text = "toolStripButton8";
+            this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
             // 
             // topSize
             // 
