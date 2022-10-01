@@ -58,6 +58,7 @@
             this.leftCut = new System.Windows.Forms.ToolStripButton();
             this.leftCopy = new System.Windows.Forms.ToolStripButton();
             this.leftPaste = new System.Windows.Forms.ToolStripButton();
+            this.topSize = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -71,7 +72,7 @@
             this.helpMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(817, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(378, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,6 +104,7 @@
             this.fileOpen.Name = "fileOpen";
             this.fileOpen.Size = new System.Drawing.Size(114, 22);
             this.fileOpen.Text = "Open";
+            this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
             // 
             // toolStripSeparator1
             // 
@@ -115,6 +117,7 @@
             this.fileSave.Name = "fileSave";
             this.fileSave.Size = new System.Drawing.Size(114, 22);
             this.fileSave.Text = "Save";
+            this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
             // 
             // fileSaveAs
             // 
@@ -122,6 +125,7 @@
             this.fileSaveAs.Name = "fileSaveAs";
             this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
             this.fileSaveAs.Text = "Save As";
+            this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
             // 
             // toolStripSeparator2
             // 
@@ -177,7 +181,7 @@
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(180, 22);
+            this.helpAbout.Size = new System.Drawing.Size(116, 22);
             this.helpAbout.Text = "About...";
             this.helpAbout.Click += new System.EventHandler(this.helpAbout_Click);
             // 
@@ -185,9 +189,10 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(41, 58);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(730, 449);
+            this.richTextBox1.Size = new System.Drawing.Size(308, 449);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // toolStrip1
             // 
@@ -201,7 +206,7 @@
             this.topUnderline});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(817, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(378, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -213,6 +218,7 @@
             this.topNew.Name = "topNew";
             this.topNew.Size = new System.Drawing.Size(23, 22);
             this.topNew.Text = "toolStripButton1";
+            this.topNew.Click += new System.EventHandler(this.topNew_Click);
             // 
             // topOpen
             // 
@@ -222,6 +228,7 @@
             this.topOpen.Name = "topOpen";
             this.topOpen.Size = new System.Drawing.Size(23, 22);
             this.topOpen.Text = "toolStripButton2";
+            this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
             // 
             // topSave
             // 
@@ -231,6 +238,7 @@
             this.topSave.Name = "topSave";
             this.topSave.Size = new System.Drawing.Size(23, 22);
             this.topSave.Text = "toolStripButton3";
+            this.topSave.Click += new System.EventHandler(this.topSave_Click);
             // 
             // topSaveAs
             // 
@@ -240,6 +248,7 @@
             this.topSaveAs.Name = "topSaveAs";
             this.topSaveAs.Size = new System.Drawing.Size(23, 22);
             this.topSaveAs.Text = "toolStripButton4";
+            this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
             // 
             // topBold
             // 
@@ -249,6 +258,7 @@
             this.topBold.Name = "topBold";
             this.topBold.Size = new System.Drawing.Size(23, 22);
             this.topBold.Text = "toolStripButton5";
+            this.topBold.Click += new System.EventHandler(this.topBold_Click);
             // 
             // topItalics
             // 
@@ -258,6 +268,7 @@
             this.topItalics.Name = "topItalics";
             this.topItalics.Size = new System.Drawing.Size(23, 22);
             this.topItalics.Text = "toolStripButton6";
+            this.topItalics.Click += new System.EventHandler(this.topItalics_Click);
             // 
             // topUnderline
             // 
@@ -267,6 +278,7 @@
             this.topUnderline.Name = "topUnderline";
             this.topUnderline.Size = new System.Drawing.Size(23, 22);
             this.topUnderline.Text = "toolStripButton7";
+            this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
             // 
             // toolStrip2
             // 
@@ -311,11 +323,29 @@
             this.leftPaste.Size = new System.Drawing.Size(36, 20);
             this.leftPaste.Text = "toolStripButton8";
             // 
+            // topSize
+            // 
+            this.topSize.Enabled = false;
+            this.topSize.FormattingEnabled = true;
+            this.topSize.Items.AddRange(new object[] {
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18"});
+            this.topSize.Location = new System.Drawing.Point(228, 24);
+            this.topSize.Name = "topSize";
+            this.topSize.Size = new System.Drawing.Size(121, 21);
+            this.topSize.TabIndex = 4;
+            this.topSize.SelectedIndexChanged += new System.EventHandler(this.topSize_SelectedIndexChanged);
+            // 
             // TextEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 549);
+            this.ClientSize = new System.Drawing.Size(378, 549);
+            this.Controls.Add(this.topSize);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.richTextBox1);
@@ -352,7 +382,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileSaveAs;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem fileLogout;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton topNew;
         private System.Windows.Forms.ToolStripButton topOpen;
@@ -366,6 +395,8 @@
         private System.Windows.Forms.ToolStripButton leftCut;
         private System.Windows.Forms.ToolStripButton leftCopy;
         private System.Windows.Forms.ToolStripButton leftPaste;
+        private System.Windows.Forms.ComboBox topSize;
+        public System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
