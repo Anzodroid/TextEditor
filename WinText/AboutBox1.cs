@@ -129,5 +129,10 @@ namespace WinText
         {
 
         }
+
+        private void logoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

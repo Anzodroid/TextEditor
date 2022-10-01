@@ -13,6 +13,8 @@ namespace WinText
 {
     public partial class TextEdit : Form
     {
+        public double fontSize;
+        public string font;
         private static string currentFile;
 
         public static string CurrentFile
@@ -21,6 +23,11 @@ namespace WinText
             set { currentFile = value; }
 
         }
+
+
+
+
+
 
         public TextEdit()
         {
@@ -72,6 +79,42 @@ namespace WinText
             richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | FontStyle.Underline);
         }
 
+        // ------------------------Colour ------------------------------ 
+        private void topColour_Click(object sender, EventArgs e)
+        {
+
+            ColorDialog colour = new ColorDialog();
+
+            DialogResult result = colour.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                richTextBox1.SelectionBackColor = colour.Color;
+
+            }
+
+        }
+
+        private void topTextColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog colour = new ColorDialog();
+
+            DialogResult result = colour.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                richTextBox1.SelectionColor = colour.Color;
+
+            }
+        }
+
+
+        private void topComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            font = topComboBox.SelectedItem.ToString();
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily,
+            Convert.ToInt32(font), richTextBox1.SelectionFont.Style);
+        }
 
         // ------------------------File Tab------------------------------ 
         private void fileNew_Click(object sender, EventArgs e)
@@ -115,79 +158,40 @@ namespace WinText
 
         private void leftPaste_Click(object sender, EventArgs e)
         {
-
             // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.textboxbase.cut?view=windowsdesktop-6.0
-
 
             if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
             {
                 Functions function = new Functions();
                 function.PasteText(richTextBox1);
-
             }
-            // Determine if there is any text in the Clipboard to paste into the text box.
-            /*           
-                        {
-                            // Determine if any text is selected in the text box.
-                            if (richTextBox1.SelectionLength > 0)
-                            {
-                                // Ask user if they want to paste over currently selected text.
-                                if (MessageBox.Show("Do you want to paste over current selection?", "Cut Example", MessageBoxButtons.YesNo) == DialogResult.No)
-                                    // Move selection to the point after the current selection and paste.
-                                    richTextBox1.SelectionStart = richTextBox1.SelectionStart + richTextBox1.SelectionLength;
-                            }
-                            // Paste current text in Clipboard into text box.
-                            richTextBox1.Paste();
-                        }*/
+
         }
 
+        // ------------------------Edit Tab------------------------------ 
 
-
-
-        // ------------------------TEST------------------------------ 
-
-        private void AddFontSize()
+        private void editCut_Click(object sender, EventArgs e)
         {
-            // throw new Not Implemented Exception();    
-            topSize.Items.Add("8");
-            topSize.Items.Add("10");
-            topSize.Items.Add("12");
-            topSize.Items.Add("14");
-            topSize.Items.Add("16");
-            topSize.Items.Add("18");
-        }
-
-
-        private void topSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FontChange();
-        }
-
-        private void FontChange()
-        {
-            // throw new Not Implemented Exception();    
-            float fontsize = 10;
-            string fontname = richTextBox1.SelectionFont.Name;
-            if (topSize.Text != "") fontsize = float.Parse(topSize.Text);
-            if (fontsize == 0) fontsize = 10;
             if (richTextBox1.SelectionLength > 0)
+                richTextBox1.Cut(); // Cut the selected text
+        }
+
+        private void editCopy_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength > 0)
+                richTextBox1.Copy(); // Copy the selected text
+        }
+
+        private void editPaste_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
             {
-                richTextBox1.SelectionFont = new Font(fontname, fontsize);
+                Functions function = new Functions();
+                function.PasteText(richTextBox1);
             }
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            AddFontSize();
-        }
-
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // ------------------------Help Tab------------------------------ 
 
         private void helpAbout_Click(object sender, EventArgs e)
         {
@@ -195,6 +199,11 @@ namespace WinText
             aboutBox1.ShowDialog();
         }
 
+        // ------------------------TODO------------------------------ 
+
+        // Logout
+
+        // Lock editing for Read Only user
 
     }
 }

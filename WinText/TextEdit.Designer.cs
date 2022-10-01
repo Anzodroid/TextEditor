@@ -48,17 +48,23 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.topNew = new System.Windows.Forms.ToolStripButton();
             this.topOpen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.topSave = new System.Windows.Forms.ToolStripButton();
             this.topSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.topBold = new System.Windows.Forms.ToolStripButton();
             this.topItalics = new System.Windows.Forms.ToolStripButton();
             this.topUnderline = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.topColour = new System.Windows.Forms.ToolStripButton();
+            this.topTextColor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.leftCut = new System.Windows.Forms.ToolStripButton();
             this.leftCopy = new System.Windows.Forms.ToolStripButton();
             this.leftPaste = new System.Windows.Forms.ToolStripButton();
-            this.topSize = new System.Windows.Forms.ComboBox();
+            this.topComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -72,7 +78,7 @@
             this.helpMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(378, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(458, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +100,7 @@
             // 
             this.fileNew.Image = global::WinText.Properties.Resources._new;
             this.fileNew.Name = "fileNew";
-            this.fileNew.Size = new System.Drawing.Size(114, 22);
+            this.fileNew.Size = new System.Drawing.Size(180, 22);
             this.fileNew.Text = "New";
             this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
             // 
@@ -102,41 +108,41 @@
             // 
             this.fileOpen.Image = global::WinText.Properties.Resources.open;
             this.fileOpen.Name = "fileOpen";
-            this.fileOpen.Size = new System.Drawing.Size(114, 22);
+            this.fileOpen.Size = new System.Drawing.Size(180, 22);
             this.fileOpen.Text = "Open";
             this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // fileSave
             // 
             this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
             this.fileSave.Name = "fileSave";
-            this.fileSave.Size = new System.Drawing.Size(114, 22);
+            this.fileSave.Size = new System.Drawing.Size(180, 22);
             this.fileSave.Text = "Save";
             this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
             // 
             // fileSaveAs
             // 
-            this.fileSaveAs.Image = global::WinText.Properties.Resources.document_save_as;
+            this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
             this.fileSaveAs.Name = "fileSaveAs";
-            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
+            this.fileSaveAs.Size = new System.Drawing.Size(180, 22);
             this.fileSaveAs.Text = "Save As";
             this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // fileLogout
             // 
             this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
             this.fileLogout.Name = "fileLogout";
-            this.fileLogout.Size = new System.Drawing.Size(114, 22);
+            this.fileLogout.Size = new System.Drawing.Size(180, 22);
             this.fileLogout.Text = "Logout";
             // 
             // editMenuItem
@@ -153,22 +159,25 @@
             // 
             this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
             this.editCut.Name = "editCut";
-            this.editCut.Size = new System.Drawing.Size(102, 22);
+            this.editCut.Size = new System.Drawing.Size(180, 22);
             this.editCut.Text = "Cut";
+            this.editCut.Click += new System.EventHandler(this.editCut_Click);
             // 
             // editCopy
             // 
-            this.editCopy.Image = global::WinText.Properties.Resources.if_icon_ios7_copy_outline_211732;
+            this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
             this.editCopy.Name = "editCopy";
-            this.editCopy.Size = new System.Drawing.Size(102, 22);
+            this.editCopy.Size = new System.Drawing.Size(180, 22);
             this.editCopy.Text = "Copy";
+            this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
             // 
             // editPaste
             // 
-            this.editPaste.Image = global::WinText.Properties.Resources.if_paste_3671826;
+            this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
             this.editPaste.Name = "editPaste";
-            this.editPaste.Size = new System.Drawing.Size(102, 22);
+            this.editPaste.Size = new System.Drawing.Size(180, 22);
             this.editPaste.Text = "Paste";
+            this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
             // helpMenuItem
             // 
@@ -181,7 +190,7 @@
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(116, 22);
+            this.helpAbout.Size = new System.Drawing.Size(180, 22);
             this.helpAbout.Text = "About...";
             this.helpAbout.Click += new System.EventHandler(this.helpAbout_Click);
             // 
@@ -189,24 +198,29 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(41, 58);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(308, 449);
+            this.richTextBox1.Size = new System.Drawing.Size(382, 449);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topNew,
             this.topOpen,
+            this.toolStripSeparator5,
             this.topSave,
             this.topSaveAs,
+            this.toolStripSeparator3,
             this.topBold,
             this.topItalics,
-            this.topUnderline});
+            this.topUnderline,
+            this.toolStripSeparator4,
+            this.topColour,
+            this.topTextColor,
+            this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(378, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(458, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -230,6 +244,11 @@
             this.topOpen.Text = "toolStripButton2";
             this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
             // topSave
             // 
             this.topSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -243,12 +262,17 @@
             // topSaveAs
             // 
             this.topSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topSaveAs.Image = global::WinText.Properties.Resources.document_save_as;
+            this.topSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
             this.topSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.topSaveAs.Name = "topSaveAs";
             this.topSaveAs.Size = new System.Drawing.Size(23, 22);
             this.topSaveAs.Text = "toolStripButton4";
             this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // topBold
             // 
@@ -280,6 +304,36 @@
             this.topUnderline.Text = "toolStripButton7";
             this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // topColour
+            // 
+            this.topColour.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topColour.Image = global::WinText.Properties.Resources.Bucket;
+            this.topColour.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topColour.Name = "topColour";
+            this.topColour.Size = new System.Drawing.Size(23, 22);
+            this.topColour.Text = "toolStripButton1";
+            this.topColour.Click += new System.EventHandler(this.topColour_Click);
+            // 
+            // topTextColor
+            // 
+            this.topTextColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topTextColor.Image = global::WinText.Properties.Resources.textcolour;
+            this.topTextColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topTextColor.Name = "topTextColor";
+            this.topTextColor.Size = new System.Drawing.Size(23, 22);
+            this.topTextColor.Text = "toolStripButton1";
+            this.topTextColor.Click += new System.EventHandler(this.topTextColor_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.AutoSize = false;
@@ -309,7 +363,7 @@
             // leftCopy
             // 
             this.leftCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftCopy.Image = global::WinText.Properties.Resources.if_icon_ios7_copy_outline_211732;
+            this.leftCopy.Image = global::WinText.Properties.Resources.Copyblue;
             this.leftCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.leftCopy.Name = "leftCopy";
             this.leftCopy.Size = new System.Drawing.Size(36, 20);
@@ -319,36 +373,43 @@
             // leftPaste
             // 
             this.leftPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftPaste.Image = global::WinText.Properties.Resources.if_paste_3671826;
+            this.leftPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
             this.leftPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.leftPaste.Name = "leftPaste";
             this.leftPaste.Size = new System.Drawing.Size(36, 20);
             this.leftPaste.Text = "toolStripButton8";
             this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
             // 
-            // topSize
+            // topComboBox
             // 
-            this.topSize.Enabled = false;
-            this.topSize.FormattingEnabled = true;
-            this.topSize.Items.AddRange(new object[] {
+            this.topComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.topComboBox.FormattingEnabled = true;
+            this.topComboBox.Items.AddRange(new object[] {
             "8",
+            "9",
             "10",
+            "11",
             "12",
+            "13",
             "14",
+            "15",
             "16",
-            "18"});
-            this.topSize.Location = new System.Drawing.Point(228, 24);
-            this.topSize.Name = "topSize";
-            this.topSize.Size = new System.Drawing.Size(121, 21);
-            this.topSize.TabIndex = 4;
-            this.topSize.SelectedIndexChanged += new System.EventHandler(this.topSize_SelectedIndexChanged);
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.topComboBox.Location = new System.Drawing.Point(246, 27);
+            this.topComboBox.Name = "topComboBox";
+            this.topComboBox.Size = new System.Drawing.Size(39, 21);
+            this.topComboBox.TabIndex = 4;
+            this.topComboBox.SelectedIndexChanged += new System.EventHandler(this.topComboBox_SelectedIndexChanged);
             // 
             // TextEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 549);
-            this.Controls.Add(this.topSize);
+            this.ClientSize = new System.Drawing.Size(458, 549);
+            this.Controls.Add(this.topComboBox);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.richTextBox1);
@@ -356,7 +417,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TextEdit";
             this.Text = "Text Editor";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -398,8 +458,14 @@
         private System.Windows.Forms.ToolStripButton leftCut;
         private System.Windows.Forms.ToolStripButton leftCopy;
         private System.Windows.Forms.ToolStripButton leftPaste;
-        private System.Windows.Forms.ComboBox topSize;
         public System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton topColour;
+        private System.Windows.Forms.ToolStripButton topTextColor;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ComboBox topComboBox;
     }
 }
 

@@ -46,7 +46,7 @@ namespace WinText
             {
                 try
                 {
-                    MessageBox.Show("CurrentFile :" + CurrentFile);
+                    //MessageBox.Show("CurrentFile :" + CurrentFile);
                     textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText);
                 }
                 catch
@@ -67,7 +67,7 @@ namespace WinText
             {
                 textBox.SaveFile(saveFile.FileName, RichTextBoxStreamType.RichText);
                 CurrentFile = saveFile.FileName;
-                MessageBox.Show("File saved in :" + CurrentFile);
+                //MessageBox.Show("File saved in :" + CurrentFile);
             }
         }
 

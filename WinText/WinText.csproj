@@ -125,5 +125,29 @@
   <ItemGroup>
     <None Include="bin\Debug\Icons\105_underline.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\textcolour.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\Copy.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\Copyblue.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\pasteblue.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\SaveAs.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\pasteBlue2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\Bucket.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\UTS.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
