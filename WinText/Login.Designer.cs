@@ -37,6 +37,7 @@
             this.buttonNewUser = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUTS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,12 +136,25 @@
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.BackColor = System.Drawing.Color.Transparent;
+            this.errorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMessage.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage.Location = new System.Drawing.Point(17, 189);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 12);
+            this.errorMessage.TabIndex = 9;
+            this.errorMessage.Click += new System.EventHandler(this.errorMessage_Click);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinText.Properties.Resources.Security;
             this.ClientSize = new System.Drawing.Size(597, 331);
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonNewUser);
@@ -152,6 +166,7 @@
             this.Controls.Add(this.textBoxUser);
             this.Name = "LoginScreen";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUTS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,5 +184,6 @@
         private System.Windows.Forms.Button buttonNewUser;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label errorMessage;
     }
 }

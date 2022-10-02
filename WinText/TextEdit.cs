@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinText.bin;
 
 namespace WinText
 {
     public partial class TextEdit : Form
     {
         public double fontSize;
-        public string font;
+        private string font, userAccess,fName, lName;
         private static string currentFile;
 
         public static string CurrentFile
@@ -24,15 +25,26 @@ namespace WinText
 
         }
 
+        
 
-
-
-
-
-        public TextEdit()
+        public TextEdit(string userAccess, string fName, string lName)
         {
+            
+
             InitializeComponent();
+
+            //LoginScreen login = new LoginScreen();
+            //labelAccess.Text = login.userAccess;
+
+            labelAccess.Text = userAccess;
+            labelFirstName.Text = fName;
+            labelLastName.Text = lName;
         }
+
+/*        public TextEdit(string userAccess)
+        {
+            this.userAccess = userAccess;
+        }*/
 
 
         // ------------------------Top Tool Strip------------------------------ 
@@ -44,7 +56,7 @@ namespace WinText
 
         private void topOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName,lName);
             function.OpenFile(richTextBox1);
 
         }
@@ -52,13 +64,13 @@ namespace WinText
         private void topSave_Click(object sender, EventArgs e)
         {
 
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName, lName);
             function.SaveFile(richTextBox1,false);
         }
 
         private void topSaveAs_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName, lName);
             //function.SaveFileAs(richTextBox1);
             function.SaveFile(richTextBox1,true);
 
@@ -124,20 +136,20 @@ namespace WinText
 
         private void fileOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName, lName);
             function.OpenFile(richTextBox1);
         }
 
         private void fileSave_Click(object sender, EventArgs e)
         {
            // MessageBox.Show("CurrentFile1 :" + currentFile);
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName, lName);
             function.SaveFile(richTextBox1, false);
         }
 
         private void fileSaveAs_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess, fName, lName);
             function.SaveFile(richTextBox1, true);
         }
 
@@ -162,9 +174,34 @@ namespace WinText
 
             if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
             {
-                Functions function = new Functions();
+                Functions function = new Functions(userAccess, fName, lName);
                 function.PasteText(richTextBox1);
             }
+
+        }
+
+        private void fileLogout_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           
+            if (result==DialogResult.Yes)
+            {
+                var form = new LoginScreen();
+                //  form.Location = this.Location;
+                //  form.StartPosition = FormStartPosition.Manual;
+                //  form.FormClosing += delegate { this.Show(); };
+                form.Show();
+                this.Hide();
+
+            }
+            else
+            {
+
+            }
+
+
+
 
         }
 
@@ -176,6 +213,8 @@ namespace WinText
                 richTextBox1.Cut(); // Cut the selected text
         }
 
+
+
         private void editCopy_Click(object sender, EventArgs e)
         {
             if (richTextBox1.SelectionLength > 0)
@@ -186,7 +225,7 @@ namespace WinText
         {
             if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
             {
-                Functions function = new Functions();
+                Functions function = new Functions(userAccess, fName, lName);
                 function.PasteText(richTextBox1);
             }
         }

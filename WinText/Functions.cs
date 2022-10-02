@@ -10,6 +10,10 @@ namespace WinText
 
     public partial class Functions : TextEdit
     {
+        public Functions(string userAccess, string fName, string lName) : base(userAccess, fName, lName)
+        {
+        }
+
         public void OpenFile(RichTextBox textBox)
         {
             OpenFileDialog openFile = new OpenFileDialog(); // Open file dialog box 

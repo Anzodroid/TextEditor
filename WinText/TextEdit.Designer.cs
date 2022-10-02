@@ -65,6 +65,9 @@
             this.leftCopy = new System.Windows.Forms.ToolStripButton();
             this.leftPaste = new System.Windows.Forms.ToolStripButton();
             this.topComboBox = new System.Windows.Forms.ComboBox();
+            this.labelAccess = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.labelLastName = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,7 +81,7 @@
             this.helpMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(458, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(507, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +147,7 @@
             this.fileLogout.Name = "fileLogout";
             this.fileLogout.Size = new System.Drawing.Size(180, 22);
             this.fileLogout.Text = "Logout";
+            this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
             // 
             // editMenuItem
             // 
@@ -159,7 +163,7 @@
             // 
             this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
             this.editCut.Name = "editCut";
-            this.editCut.Size = new System.Drawing.Size(180, 22);
+            this.editCut.Size = new System.Drawing.Size(102, 22);
             this.editCut.Text = "Cut";
             this.editCut.Click += new System.EventHandler(this.editCut_Click);
             // 
@@ -167,7 +171,7 @@
             // 
             this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
             this.editCopy.Name = "editCopy";
-            this.editCopy.Size = new System.Drawing.Size(180, 22);
+            this.editCopy.Size = new System.Drawing.Size(102, 22);
             this.editCopy.Text = "Copy";
             this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
             // 
@@ -175,7 +179,7 @@
             // 
             this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
             this.editPaste.Name = "editPaste";
-            this.editPaste.Size = new System.Drawing.Size(180, 22);
+            this.editPaste.Size = new System.Drawing.Size(102, 22);
             this.editPaste.Text = "Paste";
             this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
@@ -190,20 +194,22 @@
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(180, 22);
+            this.helpAbout.Size = new System.Drawing.Size(116, 22);
             this.helpAbout.Text = "About...";
             this.helpAbout.Click += new System.EventHandler(this.helpAbout_Click);
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(41, 58);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(382, 449);
+            this.richTextBox1.Size = new System.Drawing.Size(429, 505);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topNew,
             this.topOpen,
@@ -220,7 +226,7 @@
             this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(458, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(507, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -344,7 +350,7 @@
             this.leftPaste});
             this.toolStrip2.Location = new System.Drawing.Point(0, 49);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(38, 500);
+            this.toolStrip2.Size = new System.Drawing.Size(38, 545);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -398,17 +404,53 @@
             "18",
             "19",
             "20"});
-            this.topComboBox.Location = new System.Drawing.Point(246, 27);
+            this.topComboBox.Location = new System.Drawing.Point(243, 27);
             this.topComboBox.Name = "topComboBox";
             this.topComboBox.Size = new System.Drawing.Size(39, 21);
             this.topComboBox.TabIndex = 4;
             this.topComboBox.SelectedIndexChanged += new System.EventHandler(this.topComboBox_SelectedIndexChanged);
             // 
+            // labelAccess
+            // 
+            this.labelAccess.AutoSize = true;
+            this.labelAccess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAccess.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAccess.ForeColor = System.Drawing.Color.DarkCyan;
+            this.labelAccess.Location = new System.Drawing.Point(375, 26);
+            this.labelAccess.Name = "labelAccess";
+            this.labelAccess.Size = new System.Drawing.Size(48, 21);
+            this.labelAccess.TabIndex = 5;
+            this.labelAccess.Text = "EDIT";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFirstName.Location = new System.Drawing.Point(429, 23);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(38, 12);
+            this.labelFirstName.TabIndex = 6;
+            this.labelFirstName.Text = "Michael";
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastName.Location = new System.Drawing.Point(429, 35);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(41, 12);
+            this.labelLastName.TabIndex = 7;
+            this.labelLastName.Text = "Anziliero";
+            // 
             // TextEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 549);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(507, 594);
+            this.Controls.Add(this.labelLastName);
+            this.Controls.Add(this.labelFirstName);
+            this.Controls.Add(this.labelAccess);
             this.Controls.Add(this.topComboBox);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
@@ -466,6 +508,9 @@
         private System.Windows.Forms.ToolStripButton topTextColor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ComboBox topComboBox;
+        private System.Windows.Forms.Label labelAccess;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.Label labelLastName;
     }
 }
 
