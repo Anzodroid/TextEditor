@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinText.bin;
 
 namespace WinText
 {
@@ -16,7 +17,8 @@ namespace WinText
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TextEdit()); // runs 
+            //Application.Run(new TextEdit()); // runs 
+            Application.Run(new LoginScreen()); // runs 
         }
     }
 }
