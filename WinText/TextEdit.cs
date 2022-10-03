@@ -40,6 +40,8 @@ namespace WinText
             labelAccess.Text = userAccess;
             labelFirstName.Text = fName;
             labelLastName.Text = lName;
+
+            this.userAccess = userAccess;
         }
 
 /*        public TextEdit(string userAccess)
@@ -57,6 +59,7 @@ namespace WinText
 
         private void topOpen_Click(object sender, EventArgs e)
         {
+
             Functions function = new Functions(userAccess, fName,lName);
             function.OpenFile(richTextBox1);
 
@@ -96,28 +99,35 @@ namespace WinText
         private void topColour_Click(object sender, EventArgs e)
         {
 
-            ColorDialog colour = new ColorDialog();
+            if (userAccess == "Edit") 
+            { 
 
-            DialogResult result = colour.ShowDialog();
+                ColorDialog colour = new ColorDialog();
 
-            if (result == DialogResult.OK)
-            {
-                richTextBox1.SelectionBackColor = colour.Color;
+                DialogResult result = colour.ShowDialog();
 
+                if (result == DialogResult.OK)
+                {
+                    richTextBox1.SelectionBackColor = colour.Color;
+
+                }
             }
-
         }
 
         private void topTextColor_Click(object sender, EventArgs e)
         {
-            ColorDialog colour = new ColorDialog();
 
-            DialogResult result = colour.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (userAccess == "Edit")
             {
-                richTextBox1.SelectionColor = colour.Color;
+                ColorDialog colour = new ColorDialog();
 
+                DialogResult result = colour.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    richTextBox1.SelectionColor = colour.Color;
+
+                }
             }
         }
 
