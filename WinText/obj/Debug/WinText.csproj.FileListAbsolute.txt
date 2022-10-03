@@ -11,3 +11,4 @@ D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.exe
 D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.pdb
 D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.AboutBox1.resources
 D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.bin.LoginScreen.resources
+D:\Csharp\2022\WinText\WinText\obj\Debug\WinText.CreateUser.resources

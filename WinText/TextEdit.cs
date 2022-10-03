@@ -33,6 +33,7 @@ namespace WinText
 
             InitializeComponent();
 
+            topComboBox.SelectedItem = "12";
             //LoginScreen login = new LoginScreen();
             //labelAccess.Text = login.userAccess;
 

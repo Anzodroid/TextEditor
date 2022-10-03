@@ -47,11 +47,13 @@
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(172, 20);
             this.textBoxUser.TabIndex = 0;
+            this.textBoxUser.TextChanged += new System.EventHandler(this.textBoxUser_TextChanged);
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(18, 166);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(172, 20);
             this.textBoxPassword.TabIndex = 1;
             // 
@@ -144,7 +146,7 @@
             this.errorMessage.ForeColor = System.Drawing.Color.Red;
             this.errorMessage.Location = new System.Drawing.Point(17, 189);
             this.errorMessage.Name = "errorMessage";
-            this.errorMessage.Size = new System.Drawing.Size(0, 12);
+            this.errorMessage.Size = new System.Drawing.Size(0, 16);
             this.errorMessage.TabIndex = 9;
             this.errorMessage.Click += new System.EventHandler(this.errorMessage_Click);
             // 
@@ -153,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinText.Properties.Resources.Security;
-            this.ClientSize = new System.Drawing.Size(597, 331);
+            this.ClientSize = new System.Drawing.Size(597, 348);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonExit);

@@ -16,15 +16,22 @@ namespace WinText.bin
     public partial class LoginScreen : Form
     {
 
-        public string userAccess, fName, lName, birthDay;
+        public string userAccess, fName, lName, birthDay; 
         public static string CurrentPath;
+        private string loginPath;
 
-        string loginFilePath;
+        public string LoginPath
+        {
+            get { return loginPath; }
+            set { loginPath = value; }
 
-      //  string consoleUser, consolePassword;
-       // string password = "";
-       // bool userValidation = false;
-       // bool passwordValidation = false;
+        }
+
+
+        //  string consoleUser, consolePassword;
+        // string password = "";
+        // bool userValidation = false;
+        // bool passwordValidation = false;
         int userIndex;
 
         ArrayList fileList = new ArrayList(); // inital ArrayList from login file
@@ -47,12 +54,14 @@ namespace WinText.bin
         public LoginScreen()
         {
             InitializeComponent();
+            CurrentPath = Directory.GetCurrentDirectory(); // Get current path
+            LoginPath = CurrentPath + "\\login.txt"; // location of login file
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             
-            CurrentPath = Directory.GetCurrentDirectory(); // Get current path
+            
 
 
             string username = textBoxUser.Text;
@@ -66,7 +75,7 @@ namespace WinText.bin
         private void buttonNewUser_Click(object sender, EventArgs e)
         {
 
-            var form = new TextEdit(userAccess , fName , lName);
+            var form = new CreateUser();
             //  form.Location = this.Location;
             //  form.StartPosition = FormStartPosition.Manual;
             //  form.FormClosing += delegate { this.Show(); };
@@ -80,6 +89,11 @@ namespace WinText.bin
 
         }
 
+        private void textBoxUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -88,15 +102,15 @@ namespace WinText.bin
 
         public void CheckUser(string user)  // method to check user exists
         {
-            string path = CurrentPath + "\\login.txt"; // location of login file
+
 
             //MessageBox.Show("PATH LOGIN" + loginFilePath + "PATH CURRENT" + CurrentPath + " PATH" +path);
 
             try
             {
-                using (TextReader myreader = File.OpenText(path))
+                using (TextReader myreader = File.OpenText(LoginPath))
                 {
-                    foreach (string line in File.ReadLines(path))
+                    foreach (string line in File.ReadLines(LoginPath))
                     {
                         fileList.Add(line);
                     }
