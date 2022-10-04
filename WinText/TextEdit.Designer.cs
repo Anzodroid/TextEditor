@@ -48,7 +48,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.topNew = new System.Windows.Forms.ToolStripButton();
             this.topOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.topSave = new System.Windows.Forms.ToolStripButton();
             this.topSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -103,7 +102,7 @@
             // 
             this.fileNew.Image = global::WinText.Properties.Resources._new;
             this.fileNew.Name = "fileNew";
-            this.fileNew.Size = new System.Drawing.Size(180, 22);
+            this.fileNew.Size = new System.Drawing.Size(114, 22);
             this.fileNew.Text = "New";
             this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
             // 
@@ -111,20 +110,20 @@
             // 
             this.fileOpen.Image = global::WinText.Properties.Resources.open;
             this.fileOpen.Name = "fileOpen";
-            this.fileOpen.Size = new System.Drawing.Size(180, 22);
+            this.fileOpen.Size = new System.Drawing.Size(114, 22);
             this.fileOpen.Text = "Open";
             this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
             // 
             // fileSave
             // 
             this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
             this.fileSave.Name = "fileSave";
-            this.fileSave.Size = new System.Drawing.Size(180, 22);
+            this.fileSave.Size = new System.Drawing.Size(114, 22);
             this.fileSave.Text = "Save";
             this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
             // 
@@ -132,20 +131,20 @@
             // 
             this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
             this.fileSaveAs.Name = "fileSaveAs";
-            this.fileSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
             this.fileSaveAs.Text = "Save As";
             this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
             // 
             // fileLogout
             // 
             this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
             this.fileLogout.Name = "fileLogout";
-            this.fileLogout.Size = new System.Drawing.Size(180, 22);
+            this.fileLogout.Size = new System.Drawing.Size(114, 22);
             this.fileLogout.Text = "Logout";
             this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
             // 
@@ -213,7 +212,6 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topNew,
             this.topOpen,
-            this.toolStripSeparator5,
             this.topSave,
             this.topSaveAs,
             this.toolStripSeparator3,
@@ -249,11 +247,6 @@
             this.topOpen.Size = new System.Drawing.Size(23, 22);
             this.topOpen.Text = "toolStripButton2";
             this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
             // topSave
             // 
@@ -501,7 +494,6 @@
         private System.Windows.Forms.ToolStripButton leftCopy;
         private System.Windows.Forms.ToolStripButton leftPaste;
         public System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton topColour;
