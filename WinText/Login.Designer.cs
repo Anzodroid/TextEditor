@@ -47,7 +47,6 @@
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(172, 20);
             this.textBoxUser.TabIndex = 0;
-            this.textBoxUser.TextChanged += new System.EventHandler(this.textBoxUser_TextChanged);
             // 
             // textBoxPassword
             // 
@@ -148,7 +147,6 @@
             this.errorMessage.Name = "errorMessage";
             this.errorMessage.Size = new System.Drawing.Size(0, 16);
             this.errorMessage.TabIndex = 9;
-            this.errorMessage.Click += new System.EventHandler(this.errorMessage_Click);
             // 
             // LoginScreen
             // 

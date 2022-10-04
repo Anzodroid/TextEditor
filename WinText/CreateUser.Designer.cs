@@ -78,7 +78,6 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(112, 20);
             this.textBoxUserName.TabIndex = 2;
-            this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
             // textBoxPassword1
             // 
@@ -87,7 +86,6 @@
             this.textBoxPassword1.Name = "textBoxPassword1";
             this.textBoxPassword1.Size = new System.Drawing.Size(112, 20);
             this.textBoxPassword1.TabIndex = 3;
-            this.textBoxPassword1.TextChanged += new System.EventHandler(this.textBoxPassword1_TextChanged);
             // 
             // textBoxPassword2
             // 
@@ -96,7 +94,6 @@
             this.textBoxPassword2.Name = "textBoxPassword2";
             this.textBoxPassword2.Size = new System.Drawing.Size(112, 20);
             this.textBoxPassword2.TabIndex = 4;
-            this.textBoxPassword2.TextChanged += new System.EventHandler(this.textBoxPassword2_TextChanged);
             // 
             // textBoxLastName
             // 
@@ -105,7 +102,6 @@
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(112, 20);
             this.textBoxLastName.TabIndex = 5;
-            this.textBoxLastName.TextChanged += new System.EventHandler(this.textBoxLastName_TextChanged);
             // 
             // textBoxFirstName
             // 
@@ -114,7 +110,6 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(112, 20);
             this.textBoxFirstName.TabIndex = 6;
-            this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
             // 
             // dateTimeDateOfBirth
             // 
@@ -125,7 +120,6 @@
             this.dateTimeDateOfBirth.Size = new System.Drawing.Size(112, 20);
             this.dateTimeDateOfBirth.TabIndex = 7;
             this.dateTimeDateOfBirth.Value = new System.DateTime(2022, 10, 1, 0, 0, 0, 0);
-            this.dateTimeDateOfBirth.ValueChanged += new System.EventHandler(this.dateTimeDateOfBirth_ValueChanged);
             // 
             // labelTitle
             // 
@@ -138,7 +132,6 @@
             this.labelTitle.Size = new System.Drawing.Size(183, 33);
             this.labelTitle.TabIndex = 9;
             this.labelTitle.Text = "Create User";
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // labelUser
             // 

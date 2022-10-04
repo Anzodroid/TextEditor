@@ -15,10 +15,17 @@ namespace WinText.bin
 {
     public partial class LoginScreen : Form
     {
-
-        public string userAccess, fName, lName, birthDay; 
-        public static string CurrentPath;
-        private string loginPath;
+        private string userAccess, fName, lName, birthDay, stringList, loginPath; 
+        private static string CurrentPath;
+        private int userIndex;
+        List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
+        List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
+        List<string> userList = new List<string>(); // Generic Collection: list of users
+        List<string> pwdList = new List<string>(); // Generic Collection: list of passwords
+        List<string> accessList = new List<string>(); // Generic Collection: list of access
+        List<string> fNameList = new List<string>(); // Generic Collection: list of first names
+        List<string> lNameList = new List<string>(); // Generic Collection: list of last names
+        List<string> birthList = new List<string>(); // Generic Collection: list of date of birth (although not used)
 
         public string LoginPath
         {
@@ -27,30 +34,6 @@ namespace WinText.bin
 
         }
 
-
-        //  string consoleUser, consolePassword;
-        // string password = "";
-        // bool userValidation = false;
-        // bool passwordValidation = false;
-        int userIndex;
-
-        ArrayList fileList = new ArrayList(); // inital ArrayList from login file
-        List<string> splitList = new List<string>(); // users and passwords
-        List<string> userList = new List<string>(); // list of users
-        List<string> pwdList = new List<string>(); // list of passwords
-        List<string> accessList = new List<string>(); // list of access
-
-        private void errorMessage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        List<string> fNameList = new List<string>(); // list of first names
-        List<string> lNameList = new List<string>(); // list of last names
-        List<string> birthList = new List<string>(); // list of birthdays
-
-
-
         public LoginScreen()
         {
             InitializeComponent();
@@ -58,58 +41,39 @@ namespace WinText.bin
             LoginPath = CurrentPath + "\\login.txt"; // location of login file
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            
-            
-
-
-            string username = textBoxUser.Text;
-            string password = textBoxPassword.Text;
-
-            //MessageBox.Show(username + ":" + password);
-            CheckUser(username);
-           
-        }
-
-        private void buttonNewUser_Click(object sender, EventArgs e)
-        {
-
-            var form = new CreateUser();
-            //  form.Location = this.Location;
-            //  form.StartPosition = FormStartPosition.Manual;
-            //  form.FormClosing += delegate { this.Show(); };
-            form.Show();
-            this.Hide();
-
-        }
-
         private void LoginScreen_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void textBoxUser_TextChanged(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-
+            string username = textBoxUser.Text;
+            string password = textBoxPassword.Text;
+            CheckUser(username); 
         }
+
+        private void buttonNewUser_Click(object sender, EventArgs e)
+        {
+            var form = new CreateUser();
+            form.Show();
+            this.Hide();
+        }
+
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
-
         public void CheckUser(string user)  // method to check user exists
         {
-
-
-            //MessageBox.Show("PATH LOGIN" + loginFilePath + "PATH CURRENT" + CurrentPath + " PATH" +path);
-
             try
             {
-                using (TextReader myreader = File.OpenText(LoginPath))
-                {
+                // using (TextReader myreader = File.OpenText(LoginPath))  1
+                //TextReader myreader = File.OpenText(LoginPath); 2
+
+               // {
                     foreach (string line in File.ReadLines(LoginPath))
                     {
                         fileList.Add(line);
@@ -117,21 +81,19 @@ namespace WinText.bin
 
                     for (int i = 0; i < fileList.Count; i++)
                     {
-                        string stringList = fileList[i].ToString(); // convert to string
+                        stringList = fileList[i].ToString(); // convert to string
                         splitList = stringList.Split(',').ToList(); // split users and passwords to new list
                         userList.Add(splitList[0]); // add first element to user list
                         pwdList.Add(splitList[1]); // add second element to password list
-                        accessList.Add(splitList[2]); // add second element to password list
-                        fNameList.Add(splitList[3]); // add second element to password list
-                        lNameList.Add(splitList[4]); // add second element to password list
-                        birthList.Add(splitList[5]); // add second element to password list
-
+                        accessList.Add(splitList[2]); // add third element to access list
+                        fNameList.Add(splitList[3]); // add fourth element to first name list
+                        lNameList.Add(splitList[4]); // add fith element to last name list
+                        birthList.Add(splitList[5]); // add sixth element to date of birth list
                     }
 
                     if (userList.Contains(user))
                     {
                         userIndex = userList.IndexOf(user);
-                       // userValidation = true;
                         MessageBox.Show("USER FOUND : index" + userIndex + " : " + userList[userIndex] + " : " + pwdList[userIndex] + " : " + accessList[userIndex] + " : " + fNameList[userIndex] + " : " + lNameList[userIndex] + " : " + birthList[userIndex]);
                         
                         userAccess = accessList[userIndex];
@@ -142,18 +104,15 @@ namespace WinText.bin
                         MessageBox.Show("USER access:" + userAccess);
 
                         TextEditForm();// switch to text edit form 
-
                     }
                     else
                     {
-                       // userValidation = false;
                         errorMessage.Text = "Login Failure";
-                        MessageBox.Show("Login Failed","Login",MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        
+                        MessageBox.Show("Login Failed","Login",MessageBoxButtons.OK, MessageBoxIcon.Stop);    
                     }
-                }
+               // }
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show("Login file not found, please contact your system admin");
             }
@@ -162,19 +121,13 @@ namespace WinText.bin
                 MessageBox.Show("Critical error, please contact your system admin");
 
             }
-
         }
-
 
         public void TextEditForm()
         {
             var form = new TextEdit(userAccess, fName, lName);
-            //  form.Location = this.Location;
-            //  form.StartPosition = FormStartPosition.Manual;
-            //  form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
-
         }
 
 

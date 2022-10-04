@@ -19,101 +19,56 @@ namespace WinText
         public CreateUser()
         {
             InitializeComponent();
-            comboBoxType.SelectedItem = "View";
-        }
-
-        private void labelTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxUserName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPassword1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPassword2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeDateOfBirth_ValueChanged(object sender, EventArgs e)
-        {
-
+            comboBoxType.SelectedItem = "View"; // set default combobox item
         }
 
         private void comboBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
-            
+            //MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-
             dateTimeDateOfBirth.CustomFormat = "dd-MM-yyyy"; //change date to required format
-            userName = textBoxUserName.Text;
-            password1 = textBoxPassword1.Text;
-            password2 = textBoxPassword2.Text;
+            userName = textBoxUserName.Text; // username 
+            password1 = textBoxPassword1.Text; // password 1 
+            password2 = textBoxPassword2.Text; // password 2
             fName = textBoxFirstName.Text; // set first name
             lName = textBoxLastName.Text; // set last name
             date = dateTimeDateOfBirth.Text; // set date
             userType = comboBoxType.SelectedItem.ToString(); // set combobox user type value
 
-
             bool pwCheck = PasswordCheck(password1, password2);
             if (pwCheck)
             {
-                MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
+               // MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
 
-                LoginScreen login = new LoginScreen(); 
+                LoginScreen login = new LoginScreen();
 
-                using (StreamWriter sw = File.AppendText(login.LoginPath))
+                //using (StreamWriter sw = File.AppendText(login.LoginPath))
+                StreamWriter sw = File.AppendText(login.LoginPath);
                 {
+                    //append variables to login file 
                     sw.WriteLine(userName+","+ password1 + "," + userType + "," +fName + "," + lName + "," + date);
                     sw.Close();
                 }
 
                 ReturnLoginScreen();
-
             }
             else
             {
                 MessageBox.Show("Passwords do not Match");
             }
-            
-
-
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             ReturnLoginScreen();
-
         }
-
 
         private void ReturnLoginScreen()
         {
             var form = new LoginScreen();
-            //  form.Location = this.Location;
-            //  form.StartPosition = FormStartPosition.Manual;
-            //  form.FormClosing += delegate { this.Show(); };
             form.Show();
             this.Hide();
         }       
@@ -128,8 +83,6 @@ namespace WinText
             {
                 return false;
             }
-
-           
         }
 
 

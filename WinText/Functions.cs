@@ -23,17 +23,26 @@ namespace WinText
             DialogResult dr = openFile.ShowDialog(); // Shows open file dialog box in DialogResult
             if (dr == DialogResult.OK) // if user selects OK
             {
-                CurrentFile = openFile.FileName;
-
-                try
+               
+                if (openFile.FileName == loginPath) // if login file is selected then block file from opening
                 {
-                    textBox.LoadFile(CurrentFile, RichTextBoxStreamType.RichText);
+                    MessageBox.Show("Sorry, for security reasons, the login file is unable to be edited in this application", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                catch
+                else
                 {
-                    System.IO.StreamReader stream = new System.IO.StreamReader(CurrentFile);
-                    textBox.Text = stream.ReadToEnd();
-                    stream.Close();
+                    //MessageBox.Show(openFile.FileName);
+                    CurrentFile = openFile.FileName;
+
+                    try
+                    {
+                        textBox.LoadFile(CurrentFile, RichTextBoxStreamType.RichText);
+                    }
+                    catch
+                    {
+                        System.IO.StreamReader stream = new System.IO.StreamReader(CurrentFile);
+                        textBox.Text = stream.ReadToEnd();
+                        stream.Close();
+                    }
                 }
             }
 
@@ -71,7 +80,6 @@ namespace WinText
             {
                 textBox.SaveFile(saveFile.FileName, RichTextBoxStreamType.RichText);
                 CurrentFile = saveFile.FileName;
-                //MessageBox.Show("File saved in :" + CurrentFile);
             }
         }
 
