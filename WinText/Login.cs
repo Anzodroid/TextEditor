@@ -15,23 +15,22 @@ namespace WinText.bin
 {
     public partial class LoginScreen : Form
     {
-        private string userAccess, fName, lName, birthDay, stringList, loginPath; 
+        private string userAccess,userName, fName, lName, birthDay, stringList, loginPath; 
         private static string CurrentPath;
         private int userIndex;
-        List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
-        List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
-        List<string> userList = new List<string>(); // Generic Collection: list of users
-        List<string> pwdList = new List<string>(); // Generic Collection: list of passwords
-        List<string> accessList = new List<string>(); // Generic Collection: list of access
-        List<string> fNameList = new List<string>(); // Generic Collection: list of first names
-        List<string> lNameList = new List<string>(); // Generic Collection: list of last names
-        List<string> birthList = new List<string>(); // Generic Collection: list of date of birth (although not used)
+        private List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
+        private List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
+        private List<string> userList = new List<string>(); // Generic Collection: list of users
+        private List<string> pwdList = new List<string>(); // Generic Collection: list of passwords
+        private List<string> accessList = new List<string>(); // Generic Collection: list of access
+        private List<string> fNameList = new List<string>(); // Generic Collection: list of first names
+        private List<string> lNameList = new List<string>(); // Generic Collection: list of last names
+        private List<string> birthList = new List<string>(); // Generic Collection: list of date of birth (although not used)
 
         public string LoginPath
         {
             get { return loginPath; }
             set { loginPath = value; }
-
         }
 
         public LoginScreen()
@@ -94,14 +93,14 @@ namespace WinText.bin
                     if (userList.Contains(user))
                     {
                         userIndex = userList.IndexOf(user);
-                        MessageBox.Show("USER FOUND : index" + userIndex + " : " + userList[userIndex] + " : " + pwdList[userIndex] + " : " + accessList[userIndex] + " : " + fNameList[userIndex] + " : " + lNameList[userIndex] + " : " + birthList[userIndex]);
-                        
+                        //MessageBox.Show("USER FOUND : index" + userIndex + " : " + userList[userIndex] + " : " + pwdList[userIndex] + " : " + accessList[userIndex] + " : " + fNameList[userIndex] + " : " + lNameList[userIndex] + " : " + birthList[userIndex]);
+                        userName = userList[userIndex];
                         userAccess = accessList[userIndex];
                         fName = fNameList[userIndex];
                         lName = lNameList[userIndex];
                         birthDay = birthList[userIndex];
 
-                        MessageBox.Show("USER access:" + userAccess);
+                        //MessageBox.Show("USER access:" + userAccess);
 
                         TextEditForm();// switch to text edit form 
                     }
@@ -119,13 +118,12 @@ namespace WinText.bin
             catch
             {
                 MessageBox.Show("Critical error, please contact your system admin");
-
             }
         }
 
         public void TextEditForm()
         {
-            var form = new TextEdit(userAccess, fName, lName);
+            var form = new TextEdit(userAccess, userName, fName, lName);
             form.Show();
             this.Hide();
         }

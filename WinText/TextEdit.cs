@@ -14,7 +14,7 @@ namespace WinText
 {
     public partial class TextEdit : Form
     {
-        private string font, userAccess, fName, lName;
+        private string font, userAccess, userName, fName, lName;
         private static string currentFile;
         public string loginPath;
 
@@ -24,7 +24,7 @@ namespace WinText
             set { currentFile = value; }
         }
 
-        public TextEdit(string userAccess, string fName, string lName)
+        public TextEdit(string userAccess, string userName, string fName, string lName)
         {
 
             LoginScreen login = new LoginScreen();
@@ -33,10 +33,12 @@ namespace WinText
             InitializeComponent();
 
             topComboBox.SelectedItem = "12";
+            labelUser.Text = userName;
             labelAccess.Text = userAccess;
             labelFirstName.Text = fName;
             labelLastName.Text = lName;
 
+            this.userName = userName; // setting username
             this.userAccess = userAccess; // setting user access level
             this.fName = fName; // setting user first name
             this.fName = lName; // setting user last name
@@ -51,19 +53,19 @@ namespace WinText
 
         private void topOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, fName,lName);
+            Functions function = new Functions(userAccess, userName, fName, lName);
             function.OpenFile(richTextBox1);
         }
 
         private void topSave_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, fName, lName);
+            Functions function = new Functions(userAccess, userName, fName, lName);
             function.SaveFile(richTextBox1,false);
         }
 
         private void topSaveAs_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, fName, lName);
+            Functions function = new Functions(userAccess, userName, fName, lName);
             function.SaveFile(richTextBox1,true);
         }
 
@@ -142,7 +144,7 @@ namespace WinText
 
         private void fileOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, fName, lName);
+            Functions function = new Functions(userAccess, userName, fName, lName);
             function.OpenFile(richTextBox1);
         }
 
@@ -150,7 +152,7 @@ namespace WinText
         {
             if (userAccess == "Edit")
             {
-                Functions function = new Functions(userAccess, fName, lName);
+                Functions function = new Functions(userAccess, userName, fName, lName);
                 function.SaveFile(richTextBox1, false);
             }
         }
@@ -159,7 +161,7 @@ namespace WinText
         {
             if (userAccess == "Edit")
             {
-                Functions function = new Functions(userAccess, fName, lName);
+                Functions function = new Functions(userAccess, userName, fName, lName);
                 function.SaveFile(richTextBox1, true);
             }
         }
@@ -190,7 +192,7 @@ namespace WinText
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions(userAccess, fName, lName);
+                    Functions function = new Functions(userAccess, userName, fName, lName);
                     function.PasteText(richTextBox1);
                 }
             }
@@ -220,6 +222,26 @@ namespace WinText
             }
         }
 
+        private void labelUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelFirstName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextEdit_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void editCopy_Click(object sender, EventArgs e)
         {
             if (userAccess == "Edit")
@@ -235,7 +257,7 @@ namespace WinText
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions(userAccess, fName, lName);
+                    Functions function = new Functions(userAccess, userName, fName, lName);
                     function.PasteText(richTextBox1);
                 }
             }

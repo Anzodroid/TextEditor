@@ -259,6 +259,7 @@
             this.Controls.Add(this.buttonSubmit);
             this.Name = "CreateUser";
             this.Text = "Create User";
+            this.Load += new System.EventHandler(this.CreateUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUTS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

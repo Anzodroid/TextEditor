@@ -67,6 +67,8 @@
             this.labelAccess = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelLastName = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -80,7 +82,7 @@
             this.helpMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(507, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(578, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,9 +204,10 @@
             this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(41, 58);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(429, 505);
+            this.richTextBox1.Size = new System.Drawing.Size(501, 505);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // toolStrip1
             // 
@@ -224,7 +227,7 @@
             this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(507, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(578, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -236,6 +239,7 @@
             this.topNew.Name = "topNew";
             this.topNew.Size = new System.Drawing.Size(23, 22);
             this.topNew.Text = "toolStripButton1";
+            this.topNew.ToolTipText = "New";
             this.topNew.Click += new System.EventHandler(this.topNew_Click);
             // 
             // topOpen
@@ -246,6 +250,7 @@
             this.topOpen.Name = "topOpen";
             this.topOpen.Size = new System.Drawing.Size(23, 22);
             this.topOpen.Text = "toolStripButton2";
+            this.topOpen.ToolTipText = "Open";
             this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
             // 
             // topSave
@@ -256,6 +261,7 @@
             this.topSave.Name = "topSave";
             this.topSave.Size = new System.Drawing.Size(23, 22);
             this.topSave.Text = "toolStripButton3";
+            this.topSave.ToolTipText = "Save";
             this.topSave.Click += new System.EventHandler(this.topSave_Click);
             // 
             // topSaveAs
@@ -266,6 +272,7 @@
             this.topSaveAs.Name = "topSaveAs";
             this.topSaveAs.Size = new System.Drawing.Size(23, 22);
             this.topSaveAs.Text = "toolStripButton4";
+            this.topSaveAs.ToolTipText = "Save As";
             this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
             // 
             // toolStripSeparator3
@@ -281,6 +288,7 @@
             this.topBold.Name = "topBold";
             this.topBold.Size = new System.Drawing.Size(23, 22);
             this.topBold.Text = "toolStripButton5";
+            this.topBold.ToolTipText = "Bold";
             this.topBold.Click += new System.EventHandler(this.topBold_Click);
             // 
             // topItalics
@@ -291,6 +299,7 @@
             this.topItalics.Name = "topItalics";
             this.topItalics.Size = new System.Drawing.Size(23, 22);
             this.topItalics.Text = "toolStripButton6";
+            this.topItalics.ToolTipText = "Italics";
             this.topItalics.Click += new System.EventHandler(this.topItalics_Click);
             // 
             // topUnderline
@@ -301,6 +310,7 @@
             this.topUnderline.Name = "topUnderline";
             this.topUnderline.Size = new System.Drawing.Size(23, 22);
             this.topUnderline.Text = "toolStripButton7";
+            this.topUnderline.ToolTipText = "Underline";
             this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
             // 
             // toolStripSeparator4
@@ -316,6 +326,7 @@
             this.topColour.Name = "topColour";
             this.topColour.Size = new System.Drawing.Size(23, 22);
             this.topColour.Text = "toolStripButton1";
+            this.topColour.ToolTipText = "Back Colour";
             this.topColour.Click += new System.EventHandler(this.topColour_Click);
             // 
             // topTextColor
@@ -326,6 +337,7 @@
             this.topTextColor.Name = "topTextColor";
             this.topTextColor.Size = new System.Drawing.Size(23, 22);
             this.topTextColor.Text = "toolStripButton1";
+            this.topTextColor.ToolTipText = "Text Colour";
             this.topTextColor.Click += new System.EventHandler(this.topTextColor_Click);
             // 
             // toolStripSeparator6
@@ -357,6 +369,7 @@
             this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.leftCut.Size = new System.Drawing.Size(23, 22);
             this.leftCut.Text = "toolStripButton8";
+            this.leftCut.ToolTipText = "Cut";
             this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
             // 
             // leftCopy
@@ -367,6 +380,7 @@
             this.leftCopy.Name = "leftCopy";
             this.leftCopy.Size = new System.Drawing.Size(36, 20);
             this.leftCopy.Text = "toolStripButton9";
+            this.leftCopy.ToolTipText = "Copy";
             this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
             // 
             // leftPaste
@@ -377,6 +391,7 @@
             this.leftPaste.Name = "leftPaste";
             this.leftPaste.Size = new System.Drawing.Size(36, 20);
             this.leftPaste.Text = "toolStripButton8";
+            this.leftPaste.ToolTipText = "Paste";
             this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
             // 
             // topComboBox
@@ -409,7 +424,7 @@
             this.labelAccess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelAccess.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAccess.ForeColor = System.Drawing.Color.DarkCyan;
-            this.labelAccess.Location = new System.Drawing.Point(375, 26);
+            this.labelAccess.Location = new System.Drawing.Point(446, 28);
             this.labelAccess.Name = "labelAccess";
             this.labelAccess.Size = new System.Drawing.Size(48, 21);
             this.labelAccess.TabIndex = 5;
@@ -419,28 +434,52 @@
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(429, 23);
+            this.labelFirstName.Location = new System.Drawing.Point(500, 25);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(38, 12);
             this.labelFirstName.TabIndex = 6;
             this.labelFirstName.Text = "Michael";
+            this.labelFirstName.Click += new System.EventHandler(this.labelFirstName_Click);
             // 
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(429, 35);
+            this.labelLastName.Location = new System.Drawing.Point(500, 37);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(41, 12);
             this.labelLastName.TabIndex = 7;
             this.labelLastName.Text = "Anziliero";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.Location = new System.Drawing.Point(313, 32);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(58, 13);
+            this.labelUserName.TabIndex = 8;
+            this.labelUserName.Text = "Username:";
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Location = new System.Drawing.Point(367, 30);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(37, 15);
+            this.labelUser.TabIndex = 9;
+            this.labelUser.Text = "User";
+            this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
             // 
             // TextEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(507, 594);
+            this.ClientSize = new System.Drawing.Size(578, 594);
+            this.Controls.Add(this.labelUser);
+            this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.labelAccess);
@@ -452,6 +491,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TextEdit";
             this.Text = "Text Editor";
+            this.Load += new System.EventHandler(this.TextEdit_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -503,6 +543,8 @@
         private System.Windows.Forms.Label labelAccess;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.Label labelUser;
     }
 }
 

@@ -10,7 +10,7 @@ namespace WinText
 
     public partial class Functions : TextEdit
     {
-        public Functions(string userAccess, string fName, string lName) : base(userAccess, fName, lName)
+        public Functions(string userAccess, string userName, string fName, string lName) : base(userAccess, userName, fName, lName)
         {
         }
 
