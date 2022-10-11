@@ -32,7 +32,7 @@ namespace WinText
 
             InitializeComponent();
 
-            topComboBox.SelectedItem = "12";
+            topComboBox1.SelectedItem = "12";
             labelUser.Text = userName;
             labelAccess.Text = userAccess;
             labelFirstName.Text = fName;
@@ -123,15 +123,33 @@ namespace WinText
             }
         }
 
-        private void topComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        // ------------------------Combo Box------------------------------ 
+
+        private void topComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (userAccess == "Edit")
             {
-                font = topComboBox.SelectedItem.ToString();
-                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily,
-                Convert.ToInt32(font), richTextBox1.SelectionFont.Style);
+                try
+                {
+                    font = topComboBox1.SelectedItem.ToString();
+                    richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily,
+                    Convert.ToInt32(font), richTextBox1.SelectionFont.Style);
+                }
+                catch
+                {
+                    topComboBox1.SelectedItem = "12";
+                }
             }
         }
+
+        // ------------------------About ------------------------------ 
+
+        private void topHelp_Click(object sender, EventArgs e)
+        {
+            AboutBox1 aboutBox1 = new AboutBox1();
+            aboutBox1.ShowDialog();
+        }
+
 
         // ------------------------File Tab------------------------------ 
         private void fileNew_Click(object sender, EventArgs e)
@@ -211,6 +229,7 @@ namespace WinText
             }
         }
 
+
         // ------------------------Edit Tab------------------------------ 
 
         private void editCut_Click(object sender, EventArgs e)
@@ -222,25 +241,6 @@ namespace WinText
             }
         }
 
-        private void labelUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelFirstName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextEdit_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void editCopy_Click(object sender, EventArgs e)
         {

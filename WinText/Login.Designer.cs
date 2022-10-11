@@ -37,7 +37,8 @@
             this.buttonNewUser = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.errorMessage = new System.Windows.Forms.Label();
+            this.errorMessage2 = new System.Windows.Forms.Label();
+            this.errorMessage1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUTS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,16 +138,27 @@
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // errorMessage
+            // errorMessage2
             // 
-            this.errorMessage.AutoSize = true;
-            this.errorMessage.BackColor = System.Drawing.Color.Transparent;
-            this.errorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorMessage.ForeColor = System.Drawing.Color.Red;
-            this.errorMessage.Location = new System.Drawing.Point(17, 189);
-            this.errorMessage.Name = "errorMessage";
-            this.errorMessage.Size = new System.Drawing.Size(0, 16);
-            this.errorMessage.TabIndex = 9;
+            this.errorMessage2.AutoSize = true;
+            this.errorMessage2.BackColor = System.Drawing.Color.Transparent;
+            this.errorMessage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMessage2.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage2.Location = new System.Drawing.Point(17, 189);
+            this.errorMessage2.Name = "errorMessage2";
+            this.errorMessage2.Size = new System.Drawing.Size(0, 16);
+            this.errorMessage2.TabIndex = 9;
+            // 
+            // errorMessage1
+            // 
+            this.errorMessage1.AutoSize = true;
+            this.errorMessage1.BackColor = System.Drawing.Color.Transparent;
+            this.errorMessage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMessage1.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage1.Location = new System.Drawing.Point(17, 131);
+            this.errorMessage1.Name = "errorMessage1";
+            this.errorMessage1.Size = new System.Drawing.Size(0, 16);
+            this.errorMessage1.TabIndex = 10;
             // 
             // LoginScreen
             // 
@@ -154,7 +166,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinText.Properties.Resources.Security;
             this.ClientSize = new System.Drawing.Size(597, 348);
-            this.Controls.Add(this.errorMessage);
+            this.Controls.Add(this.errorMessage1);
+            this.Controls.Add(this.errorMessage2);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonNewUser);
@@ -184,6 +197,7 @@
         private System.Windows.Forms.Button buttonNewUser;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.Label errorMessage2;
+        private System.Windows.Forms.Label errorMessage1;
     }
 }

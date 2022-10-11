@@ -31,44 +31,45 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.fileSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.fileLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.topNew = new System.Windows.Forms.ToolStripButton();
-            this.topOpen = new System.Windows.Forms.ToolStripButton();
-            this.topSave = new System.Windows.Forms.ToolStripButton();
-            this.topSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.topBold = new System.Windows.Forms.ToolStripButton();
-            this.topItalics = new System.Windows.Forms.ToolStripButton();
-            this.topUnderline = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.topColour = new System.Windows.Forms.ToolStripButton();
-            this.topTextColor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.topComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.leftCut = new System.Windows.Forms.ToolStripButton();
-            this.leftCopy = new System.Windows.Forms.ToolStripButton();
-            this.leftPaste = new System.Windows.Forms.ToolStripButton();
-            this.topComboBox = new System.Windows.Forms.ComboBox();
             this.labelAccess = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelLastName = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
+            this.leftCut = new System.Windows.Forms.ToolStripButton();
+            this.leftCopy = new System.Windows.Forms.ToolStripButton();
+            this.leftPaste = new System.Windows.Forms.ToolStripButton();
+            this.topNew = new System.Windows.Forms.ToolStripButton();
+            this.topOpen = new System.Windows.Forms.ToolStripButton();
+            this.topSave = new System.Windows.Forms.ToolStripButton();
+            this.topSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.topBold = new System.Windows.Forms.ToolStripButton();
+            this.topItalics = new System.Windows.Forms.ToolStripButton();
+            this.topUnderline = new System.Windows.Forms.ToolStripButton();
+            this.topColour = new System.Windows.Forms.ToolStripButton();
+            this.topTextColor = new System.Windows.Forms.ToolStripButton();
+            this.topHelp = new System.Windows.Forms.ToolStripButton();
+            this.fileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -100,55 +101,15 @@
             this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileMenuItem.Text = "File";
             // 
-            // fileNew
-            // 
-            this.fileNew.Image = global::WinText.Properties.Resources._new;
-            this.fileNew.Name = "fileNew";
-            this.fileNew.Size = new System.Drawing.Size(114, 22);
-            this.fileNew.Text = "New";
-            this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
-            // 
-            // fileOpen
-            // 
-            this.fileOpen.Image = global::WinText.Properties.Resources.open;
-            this.fileOpen.Name = "fileOpen";
-            this.fileOpen.Size = new System.Drawing.Size(114, 22);
-            this.fileOpen.Text = "Open";
-            this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
             // 
-            // fileSave
-            // 
-            this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
-            this.fileSave.Name = "fileSave";
-            this.fileSave.Size = new System.Drawing.Size(114, 22);
-            this.fileSave.Text = "Save";
-            this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
-            // 
-            // fileSaveAs
-            // 
-            this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
-            this.fileSaveAs.Name = "fileSaveAs";
-            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
-            this.fileSaveAs.Text = "Save As";
-            this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
-            // 
-            // fileLogout
-            // 
-            this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
-            this.fileLogout.Name = "fileLogout";
-            this.fileLogout.Size = new System.Drawing.Size(114, 22);
-            this.fileLogout.Text = "Logout";
-            this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
             // 
             // editMenuItem
             // 
@@ -159,30 +120,6 @@
             this.editMenuItem.Name = "editMenuItem";
             this.editMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editMenuItem.Text = "Edit";
-            // 
-            // editCut
-            // 
-            this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
-            this.editCut.Name = "editCut";
-            this.editCut.Size = new System.Drawing.Size(102, 22);
-            this.editCut.Text = "Cut";
-            this.editCut.Click += new System.EventHandler(this.editCut_Click);
-            // 
-            // editCopy
-            // 
-            this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
-            this.editCopy.Name = "editCopy";
-            this.editCopy.Size = new System.Drawing.Size(102, 22);
-            this.editCopy.Text = "Copy";
-            this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
-            // 
-            // editPaste
-            // 
-            this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
-            this.editPaste.Name = "editPaste";
-            this.editPaste.Size = new System.Drawing.Size(102, 22);
-            this.editPaste.Text = "Paste";
-            this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
             // helpMenuItem
             // 
@@ -202,12 +139,11 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(41, 58);
+            this.richTextBox1.Location = new System.Drawing.Point(37, 52);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(501, 505);
+            this.richTextBox1.Size = new System.Drawing.Size(501, 519);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // toolStrip1
             // 
@@ -224,12 +160,152 @@
             this.toolStripSeparator4,
             this.topColour,
             this.topTextColor,
-            this.toolStripSeparator6});
+            this.toolStripSeparator6,
+            this.topComboBox1,
+            this.topHelp});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(578, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // topComboBox1
+            // 
+            this.topComboBox1.AutoSize = false;
+            this.topComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.topComboBox1.Items.AddRange(new object[] {
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.topComboBox1.Name = "topComboBox1";
+            this.topComboBox1.Size = new System.Drawing.Size(45, 23);
+            this.topComboBox1.SelectedIndexChanged += new System.EventHandler(this.topComboBox1_SelectedIndexChanged);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftCut,
+            this.leftCopy,
+            this.leftPaste});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 49);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(38, 545);
+            this.toolStrip2.TabIndex = 3;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // labelAccess
+            // 
+            this.labelAccess.AutoSize = true;
+            this.labelAccess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAccess.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAccess.ForeColor = System.Drawing.Color.DarkCyan;
+            this.labelAccess.Location = new System.Drawing.Point(446, 28);
+            this.labelAccess.Name = "labelAccess";
+            this.labelAccess.Size = new System.Drawing.Size(48, 21);
+            this.labelAccess.TabIndex = 5;
+            this.labelAccess.Text = "EDIT";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFirstName.Location = new System.Drawing.Point(500, 25);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(38, 12);
+            this.labelFirstName.TabIndex = 6;
+            this.labelFirstName.Text = "Michael";
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastName.Location = new System.Drawing.Point(500, 37);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(41, 12);
+            this.labelLastName.TabIndex = 7;
+            this.labelLastName.Text = "Anziliero";
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.Location = new System.Drawing.Point(314, 30);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(58, 13);
+            this.labelUserName.TabIndex = 8;
+            this.labelUserName.Text = "Username:";
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Location = new System.Drawing.Point(369, 28);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(37, 15);
+            this.labelUser.TabIndex = 9;
+            this.labelUser.Text = "User";
+            // 
+            // leftCut
+            // 
+            this.leftCut.AutoSize = false;
+            this.leftCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
+            this.leftCut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftCut.Name = "leftCut";
+            this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.leftCut.Size = new System.Drawing.Size(23, 22);
+            this.leftCut.Text = "toolStripButton8";
+            this.leftCut.ToolTipText = "Cut";
+            this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
+            // 
+            // leftCopy
+            // 
+            this.leftCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftCopy.Image = global::WinText.Properties.Resources.Copyblue;
+            this.leftCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftCopy.Name = "leftCopy";
+            this.leftCopy.Size = new System.Drawing.Size(36, 20);
+            this.leftCopy.Text = "toolStripButton9";
+            this.leftCopy.ToolTipText = "Copy";
+            this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
+            // 
+            // leftPaste
+            // 
+            this.leftPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
+            this.leftPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftPaste.Name = "leftPaste";
+            this.leftPaste.Size = new System.Drawing.Size(36, 20);
+            this.leftPaste.Text = "toolStripButton8";
+            this.leftPaste.ToolTipText = "Paste";
+            this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
             // 
             // topNew
             // 
@@ -275,11 +351,6 @@
             this.topSaveAs.ToolTipText = "Save As";
             this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // topBold
             // 
             this.topBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -313,11 +384,6 @@
             this.topUnderline.ToolTipText = "Underline";
             this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
             // topColour
             // 
             this.topColour.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -340,137 +406,79 @@
             this.topTextColor.ToolTipText = "Text Colour";
             this.topTextColor.Click += new System.EventHandler(this.topTextColor_Click);
             // 
-            // toolStripSeparator6
+            // topHelp
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.topHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topHelp.Image = global::WinText.Properties.Resources.question;
+            this.topHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topHelp.Name = "topHelp";
+            this.topHelp.Size = new System.Drawing.Size(23, 22);
+            this.topHelp.Text = "toolStripButton1";
+            this.topHelp.Click += new System.EventHandler(this.topHelp_Click);
             // 
-            // toolStrip2
+            // fileNew
             // 
-            this.toolStrip2.AutoSize = false;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.leftCut,
-            this.leftCopy,
-            this.leftPaste});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 49);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(38, 545);
-            this.toolStrip2.TabIndex = 3;
-            this.toolStrip2.Text = "toolStrip2";
+            this.fileNew.Image = global::WinText.Properties.Resources._new;
+            this.fileNew.Name = "fileNew";
+            this.fileNew.Size = new System.Drawing.Size(114, 22);
+            this.fileNew.Text = "New";
+            this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
             // 
-            // leftCut
+            // fileOpen
             // 
-            this.leftCut.AutoSize = false;
-            this.leftCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
-            this.leftCut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftCut.Name = "leftCut";
-            this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.leftCut.Size = new System.Drawing.Size(23, 22);
-            this.leftCut.Text = "toolStripButton8";
-            this.leftCut.ToolTipText = "Cut";
-            this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
+            this.fileOpen.Image = global::WinText.Properties.Resources.open;
+            this.fileOpen.Name = "fileOpen";
+            this.fileOpen.Size = new System.Drawing.Size(114, 22);
+            this.fileOpen.Text = "Open";
+            this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
             // 
-            // leftCopy
+            // fileSave
             // 
-            this.leftCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftCopy.Image = global::WinText.Properties.Resources.Copyblue;
-            this.leftCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftCopy.Name = "leftCopy";
-            this.leftCopy.Size = new System.Drawing.Size(36, 20);
-            this.leftCopy.Text = "toolStripButton9";
-            this.leftCopy.ToolTipText = "Copy";
-            this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
+            this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
+            this.fileSave.Name = "fileSave";
+            this.fileSave.Size = new System.Drawing.Size(114, 22);
+            this.fileSave.Text = "Save";
+            this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
             // 
-            // leftPaste
+            // fileSaveAs
             // 
-            this.leftPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
-            this.leftPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftPaste.Name = "leftPaste";
-            this.leftPaste.Size = new System.Drawing.Size(36, 20);
-            this.leftPaste.Text = "toolStripButton8";
-            this.leftPaste.ToolTipText = "Paste";
-            this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
+            this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
+            this.fileSaveAs.Name = "fileSaveAs";
+            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
+            this.fileSaveAs.Text = "Save As";
+            this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
             // 
-            // topComboBox
+            // fileLogout
             // 
-            this.topComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.topComboBox.FormattingEnabled = true;
-            this.topComboBox.Items.AddRange(new object[] {
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
-            this.topComboBox.Location = new System.Drawing.Point(243, 27);
-            this.topComboBox.Name = "topComboBox";
-            this.topComboBox.Size = new System.Drawing.Size(39, 21);
-            this.topComboBox.TabIndex = 4;
-            this.topComboBox.SelectedIndexChanged += new System.EventHandler(this.topComboBox_SelectedIndexChanged);
+            this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
+            this.fileLogout.Name = "fileLogout";
+            this.fileLogout.Size = new System.Drawing.Size(114, 22);
+            this.fileLogout.Text = "Logout";
+            this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
             // 
-            // labelAccess
+            // editCut
             // 
-            this.labelAccess.AutoSize = true;
-            this.labelAccess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelAccess.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAccess.ForeColor = System.Drawing.Color.DarkCyan;
-            this.labelAccess.Location = new System.Drawing.Point(446, 28);
-            this.labelAccess.Name = "labelAccess";
-            this.labelAccess.Size = new System.Drawing.Size(48, 21);
-            this.labelAccess.TabIndex = 5;
-            this.labelAccess.Text = "EDIT";
+            this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
+            this.editCut.Name = "editCut";
+            this.editCut.Size = new System.Drawing.Size(102, 22);
+            this.editCut.Text = "Cut";
+            this.editCut.Click += new System.EventHandler(this.editCut_Click);
             // 
-            // labelFirstName
+            // editCopy
             // 
-            this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(500, 25);
-            this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(38, 12);
-            this.labelFirstName.TabIndex = 6;
-            this.labelFirstName.Text = "Michael";
-            this.labelFirstName.Click += new System.EventHandler(this.labelFirstName_Click);
+            this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
+            this.editCopy.Name = "editCopy";
+            this.editCopy.Size = new System.Drawing.Size(102, 22);
+            this.editCopy.Text = "Copy";
+            this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
             // 
-            // labelLastName
+            // editPaste
             // 
-            this.labelLastName.AutoSize = true;
-            this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(500, 37);
-            this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(41, 12);
-            this.labelLastName.TabIndex = 7;
-            this.labelLastName.Text = "Anziliero";
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserName.Location = new System.Drawing.Point(313, 32);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(58, 13);
-            this.labelUserName.TabIndex = 8;
-            this.labelUserName.Text = "Username:";
-            // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(367, 30);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(37, 15);
-            this.labelUser.TabIndex = 9;
-            this.labelUser.Text = "User";
-            this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
+            this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
+            this.editPaste.Name = "editPaste";
+            this.editPaste.Size = new System.Drawing.Size(102, 22);
+            this.editPaste.Text = "Paste";
+            this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
             // TextEdit
             // 
@@ -483,7 +491,6 @@
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.labelAccess);
-            this.Controls.Add(this.topComboBox);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.richTextBox1);
@@ -491,7 +498,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TextEdit";
             this.Text = "Text Editor";
-            this.Load += new System.EventHandler(this.TextEdit_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -539,12 +545,13 @@
         private System.Windows.Forms.ToolStripButton topColour;
         private System.Windows.Forms.ToolStripButton topTextColor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ComboBox topComboBox;
         private System.Windows.Forms.Label labelAccess;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Label labelLastName;
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.ToolStripComboBox topComboBox1;
+        private System.Windows.Forms.ToolStripButton topHelp;
     }
 }
 

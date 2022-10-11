@@ -55,7 +55,7 @@
             this.buttonSubmit.Location = new System.Drawing.Point(119, 297);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(182, 36);
-            this.buttonSubmit.TabIndex = 0;
+            this.buttonSubmit.TabIndex = 9;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
@@ -66,7 +66,7 @@
             this.buttonExit.Location = new System.Drawing.Point(478, 297);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(106, 36);
-            this.buttonExit.TabIndex = 1;
+            this.buttonExit.TabIndex = 10;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
@@ -101,7 +101,7 @@
             this.textBoxLastName.Location = new System.Drawing.Point(119, 195);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(112, 20);
-            this.textBoxLastName.TabIndex = 5;
+            this.textBoxLastName.TabIndex = 6;
             // 
             // textBoxFirstName
             // 
@@ -109,7 +109,7 @@
             this.textBoxFirstName.Location = new System.Drawing.Point(119, 161);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(112, 20);
-            this.textBoxFirstName.TabIndex = 6;
+            this.textBoxFirstName.TabIndex = 5;
             // 
             // dateTimeDateOfBirth
             // 
@@ -231,7 +231,7 @@
             this.comboBoxType.Location = new System.Drawing.Point(120, 261);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxType.TabIndex = 18;
+            this.comboBoxType.TabIndex = 8;
             // 
             // CreateUser
             // 

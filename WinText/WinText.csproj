@@ -170,5 +170,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Icons\Security.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icons\question.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
