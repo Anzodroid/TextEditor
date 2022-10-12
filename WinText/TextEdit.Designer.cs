@@ -31,45 +31,45 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.fileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.fileLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCut = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.topNew = new System.Windows.Forms.ToolStripButton();
+            this.topOpen = new System.Windows.Forms.ToolStripButton();
+            this.topSave = new System.Windows.Forms.ToolStripButton();
+            this.topSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.topBold = new System.Windows.Forms.ToolStripButton();
+            this.topItalics = new System.Windows.Forms.ToolStripButton();
+            this.topUnderline = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.topColour = new System.Windows.Forms.ToolStripButton();
+            this.topTextColor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.topComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.topHelp = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.leftCut = new System.Windows.Forms.ToolStripButton();
+            this.leftCopy = new System.Windows.Forms.ToolStripButton();
+            this.leftPaste = new System.Windows.Forms.ToolStripButton();
             this.labelAccess = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelLastName = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
-            this.leftCut = new System.Windows.Forms.ToolStripButton();
-            this.leftCopy = new System.Windows.Forms.ToolStripButton();
-            this.leftPaste = new System.Windows.Forms.ToolStripButton();
-            this.topNew = new System.Windows.Forms.ToolStripButton();
-            this.topOpen = new System.Windows.Forms.ToolStripButton();
-            this.topSave = new System.Windows.Forms.ToolStripButton();
-            this.topSaveAs = new System.Windows.Forms.ToolStripButton();
-            this.topBold = new System.Windows.Forms.ToolStripButton();
-            this.topItalics = new System.Windows.Forms.ToolStripButton();
-            this.topUnderline = new System.Windows.Forms.ToolStripButton();
-            this.topColour = new System.Windows.Forms.ToolStripButton();
-            this.topTextColor = new System.Windows.Forms.ToolStripButton();
-            this.topHelp = new System.Windows.Forms.ToolStripButton();
-            this.fileNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCut = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -101,15 +101,55 @@
             this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileMenuItem.Text = "File";
             // 
+            // fileNew
+            // 
+            this.fileNew.Image = global::WinText.Properties.Resources._new;
+            this.fileNew.Name = "fileNew";
+            this.fileNew.Size = new System.Drawing.Size(114, 22);
+            this.fileNew.Text = "New";
+            this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
+            // 
+            // fileOpen
+            // 
+            this.fileOpen.Image = global::WinText.Properties.Resources.open;
+            this.fileOpen.Name = "fileOpen";
+            this.fileOpen.Size = new System.Drawing.Size(114, 22);
+            this.fileOpen.Text = "Open";
+            this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
             // 
+            // fileSave
+            // 
+            this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
+            this.fileSave.Name = "fileSave";
+            this.fileSave.Size = new System.Drawing.Size(114, 22);
+            this.fileSave.Text = "Save";
+            this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
+            // 
+            // fileSaveAs
+            // 
+            this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
+            this.fileSaveAs.Name = "fileSaveAs";
+            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
+            this.fileSaveAs.Text = "Save As";
+            this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
+            // 
+            // fileLogout
+            // 
+            this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
+            this.fileLogout.Name = "fileLogout";
+            this.fileLogout.Size = new System.Drawing.Size(114, 22);
+            this.fileLogout.Text = "Logout";
+            this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
             // 
             // editMenuItem
             // 
@@ -120,6 +160,30 @@
             this.editMenuItem.Name = "editMenuItem";
             this.editMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editMenuItem.Text = "Edit";
+            // 
+            // editCut
+            // 
+            this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
+            this.editCut.Name = "editCut";
+            this.editCut.Size = new System.Drawing.Size(102, 22);
+            this.editCut.Text = "Cut";
+            this.editCut.Click += new System.EventHandler(this.editCut_Click);
+            // 
+            // editCopy
+            // 
+            this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
+            this.editCopy.Name = "editCopy";
+            this.editCopy.Size = new System.Drawing.Size(102, 22);
+            this.editCopy.Text = "Copy";
+            this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
+            // 
+            // editPaste
+            // 
+            this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
+            this.editPaste.Name = "editPaste";
+            this.editPaste.Size = new System.Drawing.Size(102, 22);
+            this.editPaste.Text = "Paste";
+            this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
             // helpMenuItem
             // 
@@ -169,15 +233,114 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // topNew
+            // 
+            this.topNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topNew.Image = global::WinText.Properties.Resources._new;
+            this.topNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topNew.Name = "topNew";
+            this.topNew.Size = new System.Drawing.Size(23, 22);
+            this.topNew.Text = "toolStripButton1";
+            this.topNew.ToolTipText = "New";
+            this.topNew.Click += new System.EventHandler(this.topNew_Click);
+            // 
+            // topOpen
+            // 
+            this.topOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topOpen.Image = global::WinText.Properties.Resources.open;
+            this.topOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topOpen.Name = "topOpen";
+            this.topOpen.Size = new System.Drawing.Size(23, 22);
+            this.topOpen.Text = "toolStripButton2";
+            this.topOpen.ToolTipText = "Open";
+            this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
+            // 
+            // topSave
+            // 
+            this.topSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topSave.Image = global::WinText.Properties.Resources.if_save_173091;
+            this.topSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topSave.Name = "topSave";
+            this.topSave.Size = new System.Drawing.Size(23, 22);
+            this.topSave.Text = "toolStripButton3";
+            this.topSave.ToolTipText = "Save";
+            this.topSave.Click += new System.EventHandler(this.topSave_Click);
+            // 
+            // topSaveAs
+            // 
+            this.topSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
+            this.topSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topSaveAs.Name = "topSaveAs";
+            this.topSaveAs.Size = new System.Drawing.Size(23, 22);
+            this.topSaveAs.Text = "toolStripButton4";
+            this.topSaveAs.ToolTipText = "Save As";
+            this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
+            // topBold
+            // 
+            this.topBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topBold.Image = global::WinText.Properties.Resources.font_bold;
+            this.topBold.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topBold.Name = "topBold";
+            this.topBold.Size = new System.Drawing.Size(23, 22);
+            this.topBold.Text = "toolStripButton5";
+            this.topBold.ToolTipText = "Bold";
+            this.topBold.Click += new System.EventHandler(this.topBold_Click);
+            // 
+            // topItalics
+            // 
+            this.topItalics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topItalics.Image = global::WinText.Properties.Resources.font_italic;
+            this.topItalics.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topItalics.Name = "topItalics";
+            this.topItalics.Size = new System.Drawing.Size(23, 22);
+            this.topItalics.Text = "toolStripButton6";
+            this.topItalics.ToolTipText = "Italics";
+            this.topItalics.Click += new System.EventHandler(this.topItalics_Click);
+            // 
+            // topUnderline
+            // 
+            this.topUnderline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topUnderline.Image = global::WinText.Properties.Resources._105_underline;
+            this.topUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topUnderline.Name = "topUnderline";
+            this.topUnderline.Size = new System.Drawing.Size(23, 22);
+            this.topUnderline.Text = "toolStripButton7";
+            this.topUnderline.ToolTipText = "Underline";
+            this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // topColour
+            // 
+            this.topColour.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topColour.Image = global::WinText.Properties.Resources.Bucket;
+            this.topColour.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topColour.Name = "topColour";
+            this.topColour.Size = new System.Drawing.Size(23, 22);
+            this.topColour.Text = "toolStripButton1";
+            this.topColour.ToolTipText = "Back Colour";
+            this.topColour.Click += new System.EventHandler(this.topColour_Click);
+            // 
+            // topTextColor
+            // 
+            this.topTextColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topTextColor.Image = global::WinText.Properties.Resources.textcolour;
+            this.topTextColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topTextColor.Name = "topTextColor";
+            this.topTextColor.Size = new System.Drawing.Size(23, 22);
+            this.topTextColor.Text = "toolStripButton1";
+            this.topTextColor.ToolTipText = "Text Colour";
+            this.topTextColor.Click += new System.EventHandler(this.topTextColor_Click);
             // 
             // toolStripSeparator6
             // 
@@ -206,6 +369,16 @@
             this.topComboBox1.Size = new System.Drawing.Size(45, 23);
             this.topComboBox1.SelectedIndexChanged += new System.EventHandler(this.topComboBox1_SelectedIndexChanged);
             // 
+            // topHelp
+            // 
+            this.topHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.topHelp.Image = global::WinText.Properties.Resources.question;
+            this.topHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.topHelp.Name = "topHelp";
+            this.topHelp.Size = new System.Drawing.Size(23, 22);
+            this.topHelp.Text = "toolStripButton1";
+            this.topHelp.Click += new System.EventHandler(this.topHelp_Click);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.AutoSize = false;
@@ -219,6 +392,41 @@
             this.toolStrip2.Size = new System.Drawing.Size(38, 545);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
+            // 
+            // leftCut
+            // 
+            this.leftCut.AutoSize = false;
+            this.leftCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
+            this.leftCut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftCut.Name = "leftCut";
+            this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.leftCut.Size = new System.Drawing.Size(23, 22);
+            this.leftCut.Text = "toolStripButton8";
+            this.leftCut.ToolTipText = "Cut";
+            this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
+            // 
+            // leftCopy
+            // 
+            this.leftCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftCopy.Image = global::WinText.Properties.Resources.Copyblue;
+            this.leftCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftCopy.Name = "leftCopy";
+            this.leftCopy.Size = new System.Drawing.Size(36, 20);
+            this.leftCopy.Text = "toolStripButton9";
+            this.leftCopy.ToolTipText = "Copy";
+            this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
+            // 
+            // leftPaste
+            // 
+            this.leftPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.leftPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
+            this.leftPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.leftPaste.Name = "leftPaste";
+            this.leftPaste.Size = new System.Drawing.Size(36, 20);
+            this.leftPaste.Text = "toolStripButton8";
+            this.leftPaste.ToolTipText = "Paste";
+            this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
             // 
             // labelAccess
             // 
@@ -271,214 +479,6 @@
             this.labelUser.Size = new System.Drawing.Size(37, 15);
             this.labelUser.TabIndex = 9;
             this.labelUser.Text = "User";
-            // 
-            // leftCut
-            // 
-            this.leftCut.AutoSize = false;
-            this.leftCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
-            this.leftCut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftCut.Name = "leftCut";
-            this.leftCut.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.leftCut.Size = new System.Drawing.Size(23, 22);
-            this.leftCut.Text = "toolStripButton8";
-            this.leftCut.ToolTipText = "Cut";
-            this.leftCut.Click += new System.EventHandler(this.leftCut_Click);
-            // 
-            // leftCopy
-            // 
-            this.leftCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftCopy.Image = global::WinText.Properties.Resources.Copyblue;
-            this.leftCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftCopy.Name = "leftCopy";
-            this.leftCopy.Size = new System.Drawing.Size(36, 20);
-            this.leftCopy.Text = "toolStripButton9";
-            this.leftCopy.ToolTipText = "Copy";
-            this.leftCopy.Click += new System.EventHandler(this.leftCopy_Click);
-            // 
-            // leftPaste
-            // 
-            this.leftPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.leftPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
-            this.leftPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.leftPaste.Name = "leftPaste";
-            this.leftPaste.Size = new System.Drawing.Size(36, 20);
-            this.leftPaste.Text = "toolStripButton8";
-            this.leftPaste.ToolTipText = "Paste";
-            this.leftPaste.Click += new System.EventHandler(this.leftPaste_Click);
-            // 
-            // topNew
-            // 
-            this.topNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topNew.Image = global::WinText.Properties.Resources._new;
-            this.topNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topNew.Name = "topNew";
-            this.topNew.Size = new System.Drawing.Size(23, 22);
-            this.topNew.Text = "toolStripButton1";
-            this.topNew.ToolTipText = "New";
-            this.topNew.Click += new System.EventHandler(this.topNew_Click);
-            // 
-            // topOpen
-            // 
-            this.topOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topOpen.Image = global::WinText.Properties.Resources.open;
-            this.topOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topOpen.Name = "topOpen";
-            this.topOpen.Size = new System.Drawing.Size(23, 22);
-            this.topOpen.Text = "toolStripButton2";
-            this.topOpen.ToolTipText = "Open";
-            this.topOpen.Click += new System.EventHandler(this.topOpen_Click);
-            // 
-            // topSave
-            // 
-            this.topSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topSave.Image = global::WinText.Properties.Resources.if_save_173091;
-            this.topSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topSave.Name = "topSave";
-            this.topSave.Size = new System.Drawing.Size(23, 22);
-            this.topSave.Text = "toolStripButton3";
-            this.topSave.ToolTipText = "Save";
-            this.topSave.Click += new System.EventHandler(this.topSave_Click);
-            // 
-            // topSaveAs
-            // 
-            this.topSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
-            this.topSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topSaveAs.Name = "topSaveAs";
-            this.topSaveAs.Size = new System.Drawing.Size(23, 22);
-            this.topSaveAs.Text = "toolStripButton4";
-            this.topSaveAs.ToolTipText = "Save As";
-            this.topSaveAs.Click += new System.EventHandler(this.topSaveAs_Click);
-            // 
-            // topBold
-            // 
-            this.topBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topBold.Image = global::WinText.Properties.Resources.font_bold;
-            this.topBold.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topBold.Name = "topBold";
-            this.topBold.Size = new System.Drawing.Size(23, 22);
-            this.topBold.Text = "toolStripButton5";
-            this.topBold.ToolTipText = "Bold";
-            this.topBold.Click += new System.EventHandler(this.topBold_Click);
-            // 
-            // topItalics
-            // 
-            this.topItalics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topItalics.Image = global::WinText.Properties.Resources.font_italic;
-            this.topItalics.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topItalics.Name = "topItalics";
-            this.topItalics.Size = new System.Drawing.Size(23, 22);
-            this.topItalics.Text = "toolStripButton6";
-            this.topItalics.ToolTipText = "Italics";
-            this.topItalics.Click += new System.EventHandler(this.topItalics_Click);
-            // 
-            // topUnderline
-            // 
-            this.topUnderline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topUnderline.Image = global::WinText.Properties.Resources._105_underline;
-            this.topUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topUnderline.Name = "topUnderline";
-            this.topUnderline.Size = new System.Drawing.Size(23, 22);
-            this.topUnderline.Text = "toolStripButton7";
-            this.topUnderline.ToolTipText = "Underline";
-            this.topUnderline.Click += new System.EventHandler(this.topUnderline_Click);
-            // 
-            // topColour
-            // 
-            this.topColour.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topColour.Image = global::WinText.Properties.Resources.Bucket;
-            this.topColour.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topColour.Name = "topColour";
-            this.topColour.Size = new System.Drawing.Size(23, 22);
-            this.topColour.Text = "toolStripButton1";
-            this.topColour.ToolTipText = "Back Colour";
-            this.topColour.Click += new System.EventHandler(this.topColour_Click);
-            // 
-            // topTextColor
-            // 
-            this.topTextColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topTextColor.Image = global::WinText.Properties.Resources.textcolour;
-            this.topTextColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topTextColor.Name = "topTextColor";
-            this.topTextColor.Size = new System.Drawing.Size(23, 22);
-            this.topTextColor.Text = "toolStripButton1";
-            this.topTextColor.ToolTipText = "Text Colour";
-            this.topTextColor.Click += new System.EventHandler(this.topTextColor_Click);
-            // 
-            // topHelp
-            // 
-            this.topHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.topHelp.Image = global::WinText.Properties.Resources.question;
-            this.topHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.topHelp.Name = "topHelp";
-            this.topHelp.Size = new System.Drawing.Size(23, 22);
-            this.topHelp.Text = "toolStripButton1";
-            this.topHelp.Click += new System.EventHandler(this.topHelp_Click);
-            // 
-            // fileNew
-            // 
-            this.fileNew.Image = global::WinText.Properties.Resources._new;
-            this.fileNew.Name = "fileNew";
-            this.fileNew.Size = new System.Drawing.Size(114, 22);
-            this.fileNew.Text = "New";
-            this.fileNew.Click += new System.EventHandler(this.fileNew_Click);
-            // 
-            // fileOpen
-            // 
-            this.fileOpen.Image = global::WinText.Properties.Resources.open;
-            this.fileOpen.Name = "fileOpen";
-            this.fileOpen.Size = new System.Drawing.Size(114, 22);
-            this.fileOpen.Text = "Open";
-            this.fileOpen.Click += new System.EventHandler(this.fileOpen_Click);
-            // 
-            // fileSave
-            // 
-            this.fileSave.Image = global::WinText.Properties.Resources.if_save_173091;
-            this.fileSave.Name = "fileSave";
-            this.fileSave.Size = new System.Drawing.Size(114, 22);
-            this.fileSave.Text = "Save";
-            this.fileSave.Click += new System.EventHandler(this.fileSave_Click);
-            // 
-            // fileSaveAs
-            // 
-            this.fileSaveAs.Image = global::WinText.Properties.Resources.SaveAs;
-            this.fileSaveAs.Name = "fileSaveAs";
-            this.fileSaveAs.Size = new System.Drawing.Size(114, 22);
-            this.fileSaveAs.Text = "Save As";
-            this.fileSaveAs.Click += new System.EventHandler(this.fileSaveAs_Click);
-            // 
-            // fileLogout
-            // 
-            this.fileLogout.Image = global::WinText.Properties.Resources.gnome_logout;
-            this.fileLogout.Name = "fileLogout";
-            this.fileLogout.Size = new System.Drawing.Size(114, 22);
-            this.fileLogout.Text = "Logout";
-            this.fileLogout.Click += new System.EventHandler(this.fileLogout_Click);
-            // 
-            // editCut
-            // 
-            this.editCut.Image = global::WinText.Properties.Resources.if_clipboard_cut_42190;
-            this.editCut.Name = "editCut";
-            this.editCut.Size = new System.Drawing.Size(102, 22);
-            this.editCut.Text = "Cut";
-            this.editCut.Click += new System.EventHandler(this.editCut_Click);
-            // 
-            // editCopy
-            // 
-            this.editCopy.Image = global::WinText.Properties.Resources.Copyblue;
-            this.editCopy.Name = "editCopy";
-            this.editCopy.Size = new System.Drawing.Size(102, 22);
-            this.editCopy.Text = "Copy";
-            this.editCopy.Click += new System.EventHandler(this.editCopy_Click);
-            // 
-            // editPaste
-            // 
-            this.editPaste.Image = global::WinText.Properties.Resources.pasteBlue2;
-            this.editPaste.Name = "editPaste";
-            this.editPaste.Size = new System.Drawing.Size(102, 22);
-            this.editPaste.Text = "Paste";
-            this.editPaste.Click += new System.EventHandler(this.editPaste_Click);
             // 
             // TextEdit
             // 

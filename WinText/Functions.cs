@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace WinText
 
     public partial class Functions : TextEdit
     {
-        public Functions(string userAccess, string userName, string fName, string lName) : base(userAccess, userName, fName, lName)
+        public Functions() : base()
         {
         }
 
@@ -18,7 +19,7 @@ namespace WinText
         {
             OpenFileDialog openFile = new OpenFileDialog(); // Open file dialog box 
             openFile.Title = "Open text file";
-            openFile.Filter = "Text Files (*.rtf; *.txt) | *.rtf; *.txt";
+            openFile.Filter = "Text Files (*.rtf; *.txt) | *.rtf; *.txt"; // open either a .rtf or .txt file
 
             DialogResult dr = openFile.ShowDialog(); // Shows open file dialog box in DialogResult
             if (dr == DialogResult.OK) // if user selects OK
@@ -53,14 +54,13 @@ namespace WinText
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Title = "Save a file";
-            saveFile.Filter = " Text Files(*.rtf) | *.rtf";
+            saveFile.Filter = "Rich Text Format (*.rtf)|*.rtf|Text File (*.txt)|*.txt"; //save as either .rtf or .txt file
 
             if (!saveAs)
             {
                 try
                 {
-                    //MessageBox.Show("CurrentFile :" + CurrentFile);
-                    textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText);
+                    textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // save over the current file
                 }
                 catch
                 {
@@ -76,13 +76,13 @@ namespace WinText
         private void Save(SaveFileDialog saveFile,RichTextBox textBox)
         {
             DialogResult dr = saveFile.ShowDialog();
+
             if (dr == DialogResult.OK && saveFile.FileName.Length > 0) // Check file name length is greater than 0
             {
                 textBox.SaveFile(saveFile.FileName, RichTextBoxStreamType.RichText);
                 CurrentFile = saveFile.FileName;
             }
         }
-
 
         public void PasteText(RichTextBox textBox)
         {
@@ -93,8 +93,70 @@ namespace WinText
             textBox.Paste();  // Paste Clipboard text into richTextBox
         }
 
+        public void FontStyleChange(RichTextBox textBox, string style, string userAccess)
+        {
+            Font oldSelection;
+            oldSelection = textBox.SelectionFont;
+
+            if (userAccess == "Edit")
+            {
+
+                switch (style)
+                {
+                    case "Bold":
 
 
+                        if (oldSelection.Bold)
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Bold);
+                        }
+                        else
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Bold);
+                        }
+
+                        break;
+
+
+                    case "Italic":
+
+
+                        if (oldSelection.Italic)
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Italic);
+                        }
+                        else
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Italic);
+                        }
+
+                        break;
+
+
+                    case "Underline":
+
+
+                        if (oldSelection.Underline)
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Underline);
+                        }
+                        else
+                        {
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Underline);
+                        }
+
+                        break;
+
+                }
+
+                textBox.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+        }
 
     }
 }

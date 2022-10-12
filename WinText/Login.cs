@@ -15,8 +15,8 @@ namespace WinText.bin
 {
     public partial class LoginScreen : Form
     {
-        private string userAccess, userName, userPassword, fName, lName, birthDay, stringList, loginPath;
-        private static string CurrentPath;
+        private string  userPassword, birthDay, stringList, loginPath;
+        private static string currentPath, currentUser, userAccess, fName, lName;
         private int userIndex;
         private List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
         private List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
@@ -33,16 +33,41 @@ namespace WinText.bin
             set { loginPath = value; }
         }
 
+        public List<string> UserList
+        {
+            get { return userList; }
+            set { userList = value; }
+        }
+        public string UserAccess // user level of access
+        {
+            get { return userAccess; }
+            set { userAccess = value; }
+        }
+
+        public string CurrentUser // the currently logged in user
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
+        }
+
+        public string FName // the currently logged in user's first name
+        {
+            get { return fName; }
+            set { fName = value; }
+        }
+
+        public string LName // the currently logged in user's last name
+        {
+            get { return lName; }
+            set { lName = value; }
+        }
+
         public LoginScreen()
         {
             InitializeComponent();
-            CurrentPath = Directory.GetCurrentDirectory(); // Get current path
-            LoginPath = CurrentPath + "\\login.txt"; // location of login file
-        }
-
-        private void LoginScreen_Load(object sender, EventArgs e)
-        {
-
+            currentPath = Directory.GetCurrentDirectory(); // Get current path
+            LoginPath = currentPath + "\\login.txt"; // location of login file
+            LoadLoginFile();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -59,7 +84,6 @@ namespace WinText.bin
             this.Hide();
         }
 
-
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -67,12 +91,40 @@ namespace WinText.bin
 
         public void CheckUser(string user, string password)  // method to check user exists
         {
+                if (userList.Contains(user)) // if login file contains user 
+                {
+                    userIndex = userList.IndexOf(user);
+                    userPassword = pwdList[userIndex];
+
+                    if (userPassword == password)
+                    {
+                        CurrentUser = userList[userIndex];
+                        UserAccess = accessList[userIndex];
+                        FName = fNameList[userIndex];
+                        LName = lNameList[userIndex];
+                        birthDay = birthList[userIndex];
+
+                    MessageBox.Show(CurrentUser);
+
+                        TextEditForm();// switch to text edit form 
+                    }
+                    else // if login file password does not match provided password 
+                    {
+                        errorMessage2.Text = "Incorrect password";
+                        MessageBox.Show("Incorrect password", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+                else
+                {
+                    errorMessage1.Text = "Unknown user";
+                    MessageBox.Show("User not found", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+        }
+
+        public void LoadLoginFile()  // method to check user exists
+        {
             try
             {
-                // using (TextReader myreader = File.OpenText(LoginPath))  1
-                //TextReader myreader = File.OpenText(LoginPath); 2
-
-                // {
                 foreach (string line in File.ReadLines(LoginPath))
                 {
                     fileList.Add(line);
@@ -89,39 +141,36 @@ namespace WinText.bin
                     lNameList.Add(splitList[4]); // add fith element to last name list
                     birthList.Add(splitList[5]); // add sixth element to date of birth list
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Login file not found, please contact your system admin");
+            }
+            catch
+            {
+                MessageBox.Show("Critical error, please contact your system admin");
+            }
+        }
 
-                if (userList.Contains(user)) // if login file contains user 
+
+        public void LoginFileSaveChanges()  // method to update login file as per requirement(1d-ii)
+        {
+            try
+            {
+
+                System.IO.File.WriteAllText(LoginPath, string.Empty); // clear the login file
+
+                StreamWriter sw = File.AppendText(LoginPath); // Append each line back to the file
                 {
-                    userIndex = userList.IndexOf(user);
-                    //MessageBox.Show("USER FOUND : index" + userIndex + " : " + userList[userIndex] + " : " + pwdList[userIndex] + " : " + accessList[userIndex] + " : " + fNameList[userIndex] + " : " + lNameList[userIndex] + " : " + birthList[userIndex]);
-                    userPassword = pwdList[userIndex];
-
-                    if (userPassword == password)
-                    {
-
-
-                        userName = userList[userIndex];
-                        userAccess = accessList[userIndex];
-                        fName = fNameList[userIndex];
-                        lName = lNameList[userIndex];
-                        birthDay = birthList[userIndex];
-
-                        //MessageBox.Show("USER access:" + userAccess);
-
-                        TextEditForm();// switch to text edit form 
+                    for (int i = 0; i < userList.Count; i++)
+                    {//append variables to login file 
+                        sw.WriteLine(userList[i] + "," + pwdList[i] + "," + accessList[i] + "," + fNameList[i] + "," + lNameList[i] + "," + birthList[i]);
+                        
                     }
-                    else // if login file password does not match provided password 
-                    {
-                        errorMessage2.Text = "Incorrect password";
-                        MessageBox.Show("Incorrect password", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    }
+                    MessageBox.Show("Changes saved to Login File");
+
+                    sw.Close();
                 }
-                else
-                {
-                    errorMessage1.Text = "Unknown user";
-                    MessageBox.Show("User not found", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
-                // }
             }
             catch (FileNotFoundException)
             {
@@ -135,7 +184,8 @@ namespace WinText.bin
 
         public void TextEditForm()
         {
-            var form = new TextEdit(userAccess, userName, fName, lName);
+            //var form = new TextEdit(userAccess, currentUser, fName, lName);
+            var form = new TextEdit();
             form.Show();
             this.Hide();
         }

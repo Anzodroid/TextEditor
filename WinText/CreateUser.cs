@@ -14,10 +14,7 @@ namespace WinText
 {
     public partial class CreateUser : Form
     {
-        private string userName, password1, password2, fName, lName, date, userType, stringList;
-        private List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
-        private List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
-        private List<string> userList = new List<string>(); // Generic Collection: list of users
+        private string userName, password1, password2, fName, lName, date, userType;
 
         public CreateUser()
         {
@@ -30,10 +27,6 @@ namespace WinText
 
         }
 
-        private void comboBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
-        }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
@@ -53,11 +46,8 @@ namespace WinText
 
             if (pwCheck && dateCheck && userCheck)
             {
-               // MessageBox.Show(userName + password1 + password2 + fName + lName + date + userType);
-
                 LoginScreen login = new LoginScreen();
 
-                //using (StreamWriter sw = File.AppendText(login.LoginPath))
                 StreamWriter sw = File.AppendText(login.LoginPath);
                 {
                     //append variables to login file 
@@ -76,7 +66,8 @@ namespace WinText
             else if (!dateCheck)
             {
                 MessageBox.Show("Birthday must be in the past", "Logic Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }else if (!userCheck)
+            }
+            else if (!userCheck)
             {
                 MessageBox.Show("User already exists \nPlease choose a different username ", "User Exists", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
@@ -84,8 +75,6 @@ namespace WinText
             {
                 MessageBox.Show("User creation error, pleasce check the information you have provided", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-
-
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -120,12 +109,6 @@ namespace WinText
 
                 DateTime userDate = Convert.ToDateTime(date);
 
-                //TimeSpan spanDif = dt.Subtract(userDate);
-
-                //int difference = Convert.ToInt32(spanDif);
-
-               // MessageBox.Show("dt :" + dt + " userdate :" + userDate);
-
                 if (dt > userDate)
                 {
                     return true;
@@ -142,33 +125,19 @@ namespace WinText
             }
         }
 
-
         public bool UniqueCheck(string user)
         {
             try
             {
                 LoginScreen login = new LoginScreen();
 
-                foreach (string line in File.ReadLines(login.LoginPath))
-                {
-                    fileList.Add(line);
-                }
-
-                for (int i = 0; i < fileList.Count; i++)
-                {
-                    stringList = fileList[i].ToString(); // convert to string
-                    splitList = stringList.Split(',').ToList(); // split users to new list
-                    userList.Add(splitList[0]); // add first element to user list
-                }
-
-                if (userList.Contains(user))
+                if (login.UserList.Contains(user))
                 {
                     return false;
                 }
                 else
                 {
                     return true;
-
                 }
             }
             catch (FileNotFoundException)

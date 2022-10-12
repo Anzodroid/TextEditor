@@ -12,9 +12,9 @@ using WinText.bin;
 
 namespace WinText
 {
-    public partial class TextEdit : Form
+    public partial class TextEdit : Form 
     {
-        private string font, userAccess, userName, fName, lName;
+        private string font, userAccess, currentUser, fName, lName;
         private static string currentFile;
         public string loginPath;
 
@@ -24,72 +24,97 @@ namespace WinText
             set { currentFile = value; }
         }
 
-        public TextEdit(string userAccess, string userName, string fName, string lName)
+        public TextEdit()
         {
+            InitializeComponent();
 
             LoginScreen login = new LoginScreen();
             loginPath = login.LoginPath;
+            labelUser.Text = login.CurrentUser;
+            labelAccess.Text = login.UserAccess;
+            labelFirstName.Text = login.FName;
+            labelLastName.Text = login.LName;
 
-            InitializeComponent();
+            this.currentUser = login.CurrentUser; // setting username
+            this.userAccess = login.UserAccess; // setting user access level
+            this.fName = login.FName; // setting user first name
+            this.lName = login.LName; // setting user last name
 
-            topComboBox1.SelectedItem = "12";
-            labelUser.Text = userName;
-            labelAccess.Text = userAccess;
-            labelFirstName.Text = fName;
-            labelLastName.Text = lName;
+            
 
-            this.userName = userName; // setting username
-            this.userAccess = userAccess; // setting user access level
-            this.fName = fName; // setting user first name
-            this.fName = lName; // setting user last name
+            if (userAccess == "Edit")
+            {
+                richTextBox1.ReadOnly = false;
+                topComboBox1.SelectedItem = "12";
+            }
+            else
+            {
+                richTextBox1.ReadOnly = true;
+                richTextBox1.BackColor = Color.LightGray;
+                topComboBox1.Enabled = false;
+            }
         }
 
         // ------------------------Top Tool Strip------------------------------ 
 
         private void topNew_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            DialogResult result = MessageBox.Show("Any unsaved changes will be lost", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            if (result == DialogResult.OK)
+            {
+                richTextBox1.Clear();
+            }
+ 
         }
 
         private void topOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, userName, fName, lName);
+            Functions function = new Functions();
             function.OpenFile(richTextBox1);
         }
 
         private void topSave_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, userName, fName, lName);
-            function.SaveFile(richTextBox1,false);
+            Functions function = new Functions();
+
+            if (userAccess == "Edit")
+            {
+                function.SaveFile(richTextBox1,false);
+            }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void topSaveAs_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, userName, fName, lName);
-            function.SaveFile(richTextBox1,true);
-        }
+                if (userAccess == "Edit")
+                {
+                    Functions function = new Functions();
+                    function.SaveFile(richTextBox1,true);
+                }
+                else
+                {
+                    MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
 
         private void topBold_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
-            {
-                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | FontStyle.Bold);
-            }
+            Functions function = new Functions();
+            function.FontStyleChange(richTextBox1,"Bold",userAccess);
         }
         private void topItalics_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
-            {
-                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | FontStyle.Italic);
-            }
+            Functions function = new Functions();
+            function.FontStyleChange(richTextBox1, "Italic", userAccess);
         }
 
         private void topUnderline_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
-            {
-                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | FontStyle.Underline);
-            }
+            Functions function = new Functions();
+            function.FontStyleChange(richTextBox1, "Underline", userAccess);
         }
 
         // ------------------------Colour ------------------------------ 
@@ -101,10 +126,15 @@ namespace WinText
 
                 DialogResult result = colour.ShowDialog();
 
+             
                 if (result == DialogResult.OK)
                 {
                     richTextBox1.SelectionBackColor = colour.Color;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -120,6 +150,10 @@ namespace WinText
                 {
                     richTextBox1.SelectionColor = colour.Color;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -154,15 +188,15 @@ namespace WinText
         // ------------------------File Tab------------------------------ 
         private void fileNew_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            DialogResult result = MessageBox.Show("Any unsaved changes will be lost", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            if (result == DialogResult.OK)
             {
                 richTextBox1.Clear();
             }
         }
-
         private void fileOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions(userAccess, userName, fName, lName);
+            Functions function = new Functions();
             function.OpenFile(richTextBox1);
         }
 
@@ -170,17 +204,37 @@ namespace WinText
         {
             if (userAccess == "Edit")
             {
-                Functions function = new Functions(userAccess, userName, fName, lName);
+                Functions function = new Functions();
                 function.SaveFile(richTextBox1, false);
+            }else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-        }
 
+        }
         private void fileSaveAs_Click(object sender, EventArgs e)
         {
             if (userAccess == "Edit")
             {
-                Functions function = new Functions(userAccess, userName, fName, lName);
+                Functions function = new Functions();
                 function.SaveFile(richTextBox1, true);
+            }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void fileLogout_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                var form = new LoginScreen();
+                form.LoginFileSaveChanges(); // save changes to login file
+                form.Show();
+                this.Hide();
             }
         }
 
@@ -193,6 +247,10 @@ namespace WinText
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Cut(); // Cut the selected text
             }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void leftCopy_Click(object sender, EventArgs e)
@@ -202,6 +260,10 @@ namespace WinText
                 if (richTextBox1.SelectionLength > 0)
                 richTextBox1.Copy(); // Copy the selected text
             }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void leftPaste_Click(object sender, EventArgs e)
@@ -210,22 +272,13 @@ namespace WinText
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions(userAccess, userName, fName, lName);
+                    Functions function = new Functions();
                     function.PasteText(richTextBox1);
                 }
             }
-        }
-
-        private void fileLogout_Click(object sender, EventArgs e)
-        {
-
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-           
-            if (result==DialogResult.Yes)
+            else
             {
-                var form = new LoginScreen();
-                form.Show();
-                this.Hide();
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -239,6 +292,10 @@ namespace WinText
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Cut(); // Cut the selected text
             }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
 
@@ -249,6 +306,10 @@ namespace WinText
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Copy(); // Copy the selected text
             }
+            else
+            {
+                MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void editPaste_Click(object sender, EventArgs e)
@@ -257,12 +318,15 @@ namespace WinText
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions(userAccess, userName, fName, lName);
+                    Functions function = new Functions();
                     function.PasteText(richTextBox1);
+                }
+                else
+                {
+                    MessageBox.Show("Insufficent access for this user type", "Insufficient Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
-
         // ------------------------Help Tab------------------------------ 
 
         private void helpAbout_Click(object sender, EventArgs e)

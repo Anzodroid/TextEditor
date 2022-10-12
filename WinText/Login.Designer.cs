@@ -179,7 +179,6 @@
             this.Controls.Add(this.textBoxUser);
             this.Name = "LoginScreen";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUTS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
