@@ -11,12 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace WinText.bin
 {
+    public enum UserAccess { View, Edit };
     public partial class LoginScreen : Form
     {
-        private string  userPassword, birthDay, stringList, loginPath;
-        private static string currentPath, currentUser, userAccess, fName, lName;
+        public Enum EnumType;
+        private string userPassword, birthDay, stringList, loginPath; 
+        private static string currentPath, currentUser, fName, lName , userType;
         private int userIndex;
         private List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
         private List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
@@ -38,10 +41,10 @@ namespace WinText.bin
             get { return userList; }
             set { userList = value; }
         }
-        public string UserAccess // user level of access
+        public string UserType // user level of access
         {
-            get { return userAccess; }
-            set { userAccess = value; }
+            get { return userType; }
+            set { userType = value; }
         }
 
         public string CurrentUser // the currently logged in user
@@ -91,6 +94,8 @@ namespace WinText.bin
 
         public void CheckUser(string user, string password)  // method to check user exists
         {
+            try
+            {
                 if (userList.Contains(user)) // if login file contains user 
                 {
                     userIndex = userList.IndexOf(user);
@@ -99,12 +104,11 @@ namespace WinText.bin
                     if (userPassword == password)
                     {
                         CurrentUser = userList[userIndex];
-                        UserAccess = accessList[userIndex];
+                        //UserType = accessList[userIndex];
+                        EnumType = (UserAccess)Enum.Parse(typeof(UserAccess), accessList[userIndex]);
                         FName = fNameList[userIndex];
                         LName = lNameList[userIndex];
                         birthDay = birthList[userIndex];
-
-                    MessageBox.Show(CurrentUser);
 
                         TextEditForm();// switch to text edit form 
                     }
@@ -119,6 +123,11 @@ namespace WinText.bin
                     errorMessage1.Text = "Unknown user";
                     MessageBox.Show("User not found", "Login Fail", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Critical error, please contact your system admin :" + ex);
+            }
         }
 
         public void LoadLoginFile()  // method to check user exists
@@ -146,9 +155,9 @@ namespace WinText.bin
             {
                 MessageBox.Show("Login file not found, please contact your system admin");
             }
-            catch
+            catch (Exception ex) 
             {
-                MessageBox.Show("Critical error, please contact your system admin");
+                MessageBox.Show("Critical error, please contact your system admin" + ex);
             }
         }
 
@@ -184,8 +193,7 @@ namespace WinText.bin
 
         public void TextEditForm()
         {
-            //var form = new TextEdit(userAccess, currentUser, fName, lName);
-            var form = new TextEdit();
+            var form = new TextEdit(EnumType);
             form.Show();
             this.Hide();
         }

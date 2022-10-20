@@ -14,7 +14,8 @@ namespace WinText
 {
     public partial class TextEdit : Form 
     {
-        private string font, userAccess, currentUser, fName, lName;
+        Enum userAccess; 
+        private string font, currentUser, fName, lName;
         private static string currentFile;
         public string loginPath;
 
@@ -24,25 +25,24 @@ namespace WinText
             set { currentFile = value; }
         }
 
-        public TextEdit()
+        public TextEdit(Enum userAccess)
         {
             InitializeComponent();
 
             LoginScreen login = new LoginScreen();
             loginPath = login.LoginPath;
             labelUser.Text = login.CurrentUser;
-            labelAccess.Text = login.UserAccess;
+            labelAccess.Text = userAccess.ToString();
             labelFirstName.Text = login.FName;
             labelLastName.Text = login.LName;
 
             this.currentUser = login.CurrentUser; // setting username
-            this.userAccess = login.UserAccess; // setting user access level
+            this.userAccess = userAccess;// setting user access level
             this.fName = login.FName; // setting user first name
             this.lName = login.LName; // setting user last name
 
-            
-
-            if (userAccess == "Edit")
+           
+            if  (userAccess.Equals(UserAccess.Edit))
             {
                 richTextBox1.ReadOnly = false;
                 topComboBox1.SelectedItem = "12";
@@ -64,20 +64,19 @@ namespace WinText
             {
                 richTextBox1.Clear();
             }
- 
         }
 
         private void topOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
             function.OpenFile(richTextBox1);
         }
 
         private void topSave_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
 
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 function.SaveFile(richTextBox1,false);
             }
@@ -89,9 +88,9 @@ namespace WinText
 
         private void topSaveAs_Click(object sender, EventArgs e)
         {
-                if (userAccess == "Edit")
+                if (userAccess.Equals(UserAccess.Edit))
                 {
-                    Functions function = new Functions();
+                    Functions function = new Functions(userAccess);
                     function.SaveFile(richTextBox1,true);
                 }
                 else
@@ -102,25 +101,25 @@ namespace WinText
 
         private void topBold_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
             function.FontStyleChange(richTextBox1,"Bold",userAccess);
         }
         private void topItalics_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
             function.FontStyleChange(richTextBox1, "Italic", userAccess);
         }
 
         private void topUnderline_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
             function.FontStyleChange(richTextBox1, "Underline", userAccess);
         }
 
         // ------------------------Colour ------------------------------ 
         private void topColour_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit") 
+            if (userAccess.Equals(UserAccess.Edit))
             { 
                 ColorDialog colour = new ColorDialog();
 
@@ -140,7 +139,7 @@ namespace WinText
 
         private void topTextColor_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 ColorDialog colour = new ColorDialog();
 
@@ -161,7 +160,7 @@ namespace WinText
 
         private void topComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 try
                 {
@@ -196,15 +195,15 @@ namespace WinText
         }
         private void fileOpen_Click(object sender, EventArgs e)
         {
-            Functions function = new Functions();
+            Functions function = new Functions(userAccess);
             function.OpenFile(richTextBox1);
         }
 
         private void fileSave_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
-                Functions function = new Functions();
+                Functions function = new Functions(userAccess);
                 function.SaveFile(richTextBox1, false);
             }else
             {
@@ -214,9 +213,9 @@ namespace WinText
         }
         private void fileSaveAs_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
-                Functions function = new Functions();
+                Functions function = new Functions(userAccess);
                 function.SaveFile(richTextBox1, true);
             }
             else
@@ -242,7 +241,7 @@ namespace WinText
 
         private void leftCut_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Cut(); // Cut the selected text
@@ -255,7 +254,7 @@ namespace WinText
 
         private void leftCopy_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (richTextBox1.SelectionLength > 0)
                 richTextBox1.Copy(); // Copy the selected text
@@ -268,11 +267,11 @@ namespace WinText
 
         private void leftPaste_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions();
+                    Functions function = new Functions(userAccess);
                     function.PasteText(richTextBox1);
                 }
             }
@@ -287,7 +286,7 @@ namespace WinText
 
         private void editCut_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Cut(); // Cut the selected text
@@ -301,7 +300,7 @@ namespace WinText
 
         private void editCopy_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (richTextBox1.SelectionLength > 0)
                     richTextBox1.Copy(); // Copy the selected text
@@ -314,11 +313,11 @@ namespace WinText
 
         private void editPaste_Click(object sender, EventArgs e)
         {
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
                 if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
                 {
-                    Functions function = new Functions();
+                    Functions function = new Functions(userAccess);
                     function.PasteText(richTextBox1);
                 }
                 else

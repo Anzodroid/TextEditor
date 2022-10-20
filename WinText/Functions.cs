@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinText.bin;
 
 namespace WinText
 {
 
     public partial class Functions : TextEdit
     {
-        public Functions() : base()
+        public Functions(Enum userAccess) : base(userAccess)
         {
         }
 
@@ -93,12 +94,12 @@ namespace WinText
             textBox.Paste();  // Paste Clipboard text into richTextBox
         }
 
-        public void FontStyleChange(RichTextBox textBox, string style, string userAccess)
+        public void FontStyleChange(RichTextBox textBox, string style, Enum userAccess)
         {
             Font oldSelection;
             oldSelection = textBox.SelectionFont;
 
-            if (userAccess == "Edit")
+            if (userAccess.Equals(UserAccess.Edit))
             {
 
                 switch (style)
