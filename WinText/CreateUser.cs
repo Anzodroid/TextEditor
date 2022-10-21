@@ -22,11 +22,6 @@ namespace WinText
             comboBoxType.SelectedItem = "View"; // set default combobox item
         }
 
-        private void CreateUser_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
@@ -39,12 +34,14 @@ namespace WinText
             date = dateTimeDateOfBirth.Text; // set date
             userType = comboBoxType.SelectedItem.ToString(); // set combobox user type value
 
+            // ----- input checks -----
+            bool dateCheck = DateCheck(date); // check birth date is logical
+            bool pwCheck = PasswordCheck(password1, password2); // check passwords match
+            bool userCheck = UniqueCheck(userName); // check username is unique
+            bool characterCheck = CharacterCheck(userName, password1, fName, lName); // check that text does not contain ','
+            bool lengthCheck = LengthCheck(userName, password1, fName, lName);
 
-            bool dateCheck = DateCheck(date);
-            bool pwCheck = PasswordCheck(password1, password2);
-            bool userCheck = UniqueCheck(userName);
-
-            if (pwCheck && dateCheck && userCheck)
+            if (pwCheck && dateCheck && userCheck && characterCheck && lengthCheck)
             {
                 LoginScreen login = new LoginScreen();
 
@@ -70,6 +67,14 @@ namespace WinText
             else if (!userCheck)
             {
                 MessageBox.Show("User already exists \nPlease choose a different username ", "User Exists", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (!characterCheck)
+            {
+                MessageBox.Show("Invalid character! \nThe ',' character is not allowed ", "Invalid character", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (!lengthCheck)
+            {
+                MessageBox.Show("Invalid character length! \nOnly a maximum of 15 characters is permitted ", "Invalid character length", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             {
@@ -125,7 +130,7 @@ namespace WinText
             }
         }
 
-        public bool UniqueCheck(string user)
+        private bool UniqueCheck(string user)
         {
             try
             {
@@ -149,6 +154,31 @@ namespace WinText
             {
                 MessageBox.Show("Critical error, please contact your system admin");
                 return false;
+            }
+        }
+
+        private bool CharacterCheck(string userName, string password1, string fName, string lName)
+        {
+            if (userName.Contains(',')|| password1.Contains(',')|| fName.Contains(',')|| lName.Contains(','))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool LengthCheck(string userName, string password1, string fName, string lName)
+        {
+
+            if (userName.Length >15 || password1.Length > 15  || fName.Length > 15 || lName.Length > 15)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

@@ -196,7 +196,7 @@
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(116, 22);
+            this.helpAbout.Size = new System.Drawing.Size(180, 22);
             this.helpAbout.Text = "About...";
             this.helpAbout.Click += new System.EventHandler(this.helpAbout_Click);
             // 
@@ -376,7 +376,7 @@
             this.topHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.topHelp.Name = "topHelp";
             this.topHelp.Size = new System.Drawing.Size(23, 22);
-            this.topHelp.Text = "toolStripButton1";
+            this.topHelp.Text = "About";
             this.topHelp.Click += new System.EventHandler(this.topHelp_Click);
             // 
             // toolStrip2

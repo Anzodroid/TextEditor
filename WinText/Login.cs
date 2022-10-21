@@ -17,9 +17,9 @@ namespace WinText.bin
     public enum UserAccess { View, Edit };
     public partial class LoginScreen : Form
     {
-        public Enum EnumType;
+        public Enum UserType;
         private string userPassword, birthDay, stringList, loginPath; 
-        private static string currentPath, currentUser, fName, lName , userType;
+        private static string currentPath, currentUser, fName, lName;
         private int userIndex;
         private List<string> fileList = new List<string>(); //  Generic Collection: inital List from login file
         private List<string> splitList = new List<string>(); // Generic Collection: used to split filelist
@@ -40,11 +40,6 @@ namespace WinText.bin
         {
             get { return userList; }
             set { userList = value; }
-        }
-        public string UserType // user level of access
-        {
-            get { return userType; }
-            set { userType = value; }
         }
 
         public string CurrentUser // the currently logged in user
@@ -104,8 +99,7 @@ namespace WinText.bin
                     if (userPassword == password)
                     {
                         CurrentUser = userList[userIndex];
-                        //UserType = accessList[userIndex];
-                        EnumType = (UserAccess)Enum.Parse(typeof(UserAccess), accessList[userIndex]);
+                        UserType = (UserAccess)Enum.Parse(typeof(UserAccess), accessList[userIndex]); // Parse string to Enum 
                         FName = fNameList[userIndex];
                         LName = lNameList[userIndex];
                         birthDay = birthList[userIndex];
@@ -172,7 +166,8 @@ namespace WinText.bin
                 StreamWriter sw = File.AppendText(LoginPath); // Append each line back to the file
                 {
                     for (int i = 0; i < userList.Count; i++)
-                    {//append variables to login file 
+                    {
+
                         sw.WriteLine(userList[i] + "," + pwdList[i] + "," + accessList[i] + "," + fNameList[i] + "," + lNameList[i] + "," + birthList[i]);
                         
                     }
@@ -193,7 +188,7 @@ namespace WinText.bin
 
         public void TextEditForm()
         {
-            var form = new TextEdit(EnumType);
+            var form = new TextEdit(UserType);
             form.Show();
             this.Hide();
         }
