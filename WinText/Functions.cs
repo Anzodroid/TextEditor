@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace WinText
         {
         }
 
-        public void OpenFile(RichTextBox textBox)
+        public void OpenFile(RichTextBox textBox) // Open File
         {
             OpenFileDialog openFile = new OpenFileDialog(); // Open file dialog box 
             openFile.Title = "Open text file";
@@ -32,7 +33,7 @@ namespace WinText
                 }
                 else
                 {
-                    //MessageBox.Show(openFile.FileName);
+                   
                     CurrentFile = openFile.FileName;
 
                     try
@@ -51,17 +52,40 @@ namespace WinText
         }
 
 
-        public void SaveFile(RichTextBox textBox, bool saveAs)
+        public void SaveFile(RichTextBox textBox, bool saveAs) 
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Title = "Save a file";
             saveFile.Filter = "Rich Text Format (*.rtf)|*.rtf|Text File (*.txt)|*.txt"; //save as either .rtf or .txt file
+            
 
-            if (!saveAs)
+            if (!saveAs) // Save current file
             {
                 try
                 {
-                    textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // save over the current file
+                    if (CurrentFile == null)
+                    {
+                        Save(saveFile, textBox);
+                    }
+                    else
+                    {
+                        var extension = Path.GetExtension(saveFile.FileName);
+
+                        switch (extension.ToLower())
+                        {
+                            case ".rtf":
+                                textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // save over the current file (RichText)
+                                break;
+
+                            case ".txt":
+                                textBox.SaveFile(CurrentFile, RichTextBoxStreamType.PlainText); // save over the current file (PlainText)
+                                break;
+
+                            default:
+                                textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // default save extension (RichText)
+                                break;
+                        }
+                    }
                 }
                 catch
                 {
@@ -74,14 +98,38 @@ namespace WinText
             }
         }
 
-        private void Save(SaveFileDialog saveFile,RichTextBox textBox)
+        private void Save(SaveFileDialog saveFile,RichTextBox textBox) // Save File
         {
             DialogResult dr = saveFile.ShowDialog();
 
             if (dr == DialogResult.OK && saveFile.FileName.Length > 0) // Check file name length is greater than 0
             {
-                textBox.SaveFile(saveFile.FileName, RichTextBoxStreamType.RichText);
-                CurrentFile = saveFile.FileName;
+                try
+                {
+                    var extension = Path.GetExtension(saveFile.FileName);
+
+                    switch (extension.ToLower())
+                    {
+                        case ".rtf":
+                            CurrentFile = saveFile.FileName;
+                            textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // save over the current file (RichText)
+                            break;
+
+                        case ".txt":
+                            CurrentFile = saveFile.FileName;
+                            textBox.SaveFile(CurrentFile, RichTextBoxStreamType.PlainText); // save over the current file (PlainText)
+                            break;
+
+                        default:
+                            textBox.SaveFile(CurrentFile, RichTextBoxStreamType.RichText); // default save extension (RichText)
+                            break;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Save Error, " + ex);
+                }
             }
         }
 
@@ -107,13 +155,13 @@ namespace WinText
                     case "Bold":
 
 
-                        if (oldSelection.Bold)
+                        if (oldSelection.Bold) // if selected text is Bold
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Bold);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Bold); // remove font style
                         }
-                        else
+                        else // add font style
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Bold);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Bold); 
                         }
 
                         break;
@@ -122,13 +170,13 @@ namespace WinText
                     case "Italic":
 
 
-                        if (oldSelection.Italic)
+                        if (oldSelection.Italic)  // if selected text is Italic
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Italic);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Italic); // remove font style
                         }
-                        else
+                        else // add font style
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Italic);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Italic); 
                         }
 
                         break;
@@ -137,13 +185,13 @@ namespace WinText
                     case "Underline":
 
 
-                        if (oldSelection.Underline)
+                        if (oldSelection.Underline)  // if selected text is Underlined
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Underline);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style & ~FontStyle.Underline); // remove font style
                         }
-                        else
+                        else // add font style
                         {
-                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Underline);
+                            textBox.SelectionFont = new Font(textBox.SelectionFont, textBox.SelectionFont.Style | FontStyle.Underline); 
                         }
 
                         break;

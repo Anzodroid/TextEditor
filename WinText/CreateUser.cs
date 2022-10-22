@@ -40,8 +40,9 @@ namespace WinText
             bool userCheck = UniqueCheck(userName); // check username is unique
             bool characterCheck = CharacterCheck(userName, password1, fName, lName); // check that text does not contain ','
             bool lengthCheck = LengthCheck(userName, password1, fName, lName);
+            bool specialCheck = SpecialCheck(userName, fName, lName); // check that user details do not include special characters
 
-            if (pwCheck && dateCheck && userCheck && characterCheck && lengthCheck)
+            if (pwCheck && dateCheck && userCheck && characterCheck && lengthCheck && specialCheck)
             {
                 LoginScreen login = new LoginScreen();
 
@@ -74,7 +75,11 @@ namespace WinText
             }
             else if (!lengthCheck)
             {
-                MessageBox.Show("Invalid character length! \nOnly a maximum of 15 characters is permitted ", "Invalid character length", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Invalid character length! \nText must be between 2 and 15 characters", "Invalid character length", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (!specialCheck)
+            {
+                MessageBox.Show("Invalid characters! \nUser text must not use special characters", "Invalid characters", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             {
@@ -172,7 +177,26 @@ namespace WinText
         private bool LengthCheck(string userName, string password1, string fName, string lName)
         {
 
-            if (userName.Length >15 || password1.Length > 15  || fName.Length > 15 || lName.Length > 15)
+            if (userName.Length > 15 || password1.Length > 15  || fName.Length > 15 || lName.Length > 15)
+            {
+                return false;
+            }
+            else if (userName.Length < 2 || password1.Length < 2 || fName.Length < 2 || lName.Length < 2)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool SpecialCheck(string userName, string fName, string lName)
+        {
+
+            string[] specialCharacters = {"!","@","#","$","%","^","&","*","(",")",":",";","\"","/","?","<",">",".","{","}","[","]","+","=","~","|","\\"}; //invalid special characters 
+
+            if (specialCharacters.Any(userName.Contains) || specialCharacters.Any(fName.Contains) || specialCharacters.Any(lName.Contains))
             {
                 return false;
             }

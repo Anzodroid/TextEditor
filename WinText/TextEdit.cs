@@ -62,7 +62,8 @@ namespace WinText
             DialogResult result = MessageBox.Show("Any unsaved changes will be lost", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             if (result == DialogResult.OK)
             {
-                richTextBox1.Clear();
+                richTextBox1.Clear(); // clear the richtext box 
+                currentFile = null; //clear the current file from memory
             }
         }
 
@@ -190,7 +191,8 @@ namespace WinText
             DialogResult result = MessageBox.Show("Any unsaved changes will be lost", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             if (result == DialogResult.OK)
             {
-                richTextBox1.Clear();
+                richTextBox1.Clear(); // clear the richtext box 
+                currentFile = null; //clear the current file from memory
             }
         }
         private void fileOpen_Click(object sender, EventArgs e)

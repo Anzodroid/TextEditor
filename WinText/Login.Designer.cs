@@ -133,7 +133,7 @@
             this.buttonLogin.Location = new System.Drawing.Point(18, 216);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(172, 47);
-            this.buttonLogin.TabIndex = 8;
+            this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);

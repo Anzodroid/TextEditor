@@ -1,11 +1,11 @@
 Student ID :11126570
 Name : Michael Anziliero
 
-Valid login 1 : 
+Valid login 1 : (EDIT)
 		user: admin 
 		password: admin
 
-Valid login 2 : 
+Valid login 2 : (VIEW)
 		user: test 
 		password: test
 
